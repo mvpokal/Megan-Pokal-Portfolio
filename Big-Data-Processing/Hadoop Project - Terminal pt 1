@@ -1,0 +1,845 @@
+Last login: Tue Feb 24 20:15:51 on ttys001
+
+The default interactive shell is now zsh.
+To update your account to use zsh, please run `chsh -s /bin/zsh`.
+For more details, please visit https://support.apple.com/kb/HT208050.
+Megans-MacBook-Pro:~ meganpokal$ ssh-keygen
+Generating public/private ed25519 key pair.
+Enter file in which to save the key (/Users/meganpokal/.ssh/id_ed25519): 
+/Users/meganpokal/.ssh/id_ed25519 already exists.
+Overwrite (y/n)? y
+Enter passphrase (empty for no passphrase): 
+Enter same passphrase again: 
+Your identification has been saved in /Users/meganpokal/.ssh/id_ed25519
+Your public key has been saved in /Users/meganpokal/.ssh/id_ed25519.pub
+The key fingerprint is:
+SHA256:zWBa1QFivDrn6uDM6wf1JM8oi0Nq2nOd6QeX/wF616I meganpokal@Megans-MacBook-Pro.local
+The key's randomart image is:
++--[ED25519 256]--+
+|       .o oo..   |
+|       ..o  .    |
+|        +.       |
+|      o+o+       |
+|     ..OS.+      |
+|  . o = B. . .   |
+| o ..= O... + .  |
+|.o++o.= o..o o   |
+|+ .=*=+o  E..    |
++----[SHA256]-----+
+Megans-MacBook-Pro:~ meganpokal$ cat ~/.ssh/id_rsa.pub
+ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQC6t4vM48nXgTYgrdmNAsGHYjz1MmaJTu7v/E76wCY3aoB2I6QmwxS/aQZqrN/tGWH/uKYLTWS7LAyM2mWm9MTwIbOOD04FvqP6pVVA1+2iaxnK/BY5yud21GgLlIOGI3hnZKhH+3vc8TCSIekSbkXUsFT2EPS8vWsX1zoafZKr/Esf+pC2eR0MS+z0CWJ8iQvIxP8sFuQTjxILVcXDrua9rpOnDTbFbBssr3Otd5UricD/GtRdH7xi8kNjKDz8/xMBzBar1UM+1DT1ZHk63IjrxALvCoeQLKZE525Co4jSE3WfFEDGfUekbdrYGc1IoeGxPN3kW63Qk6oMHqsJgshSvZa+TyihCn1wF6mVIQPu9ioG5Eoz+3TfsjEHmcRctww2XbpyrMjcUFT/7ed31JIpYwli4kZzcPsCzMWyeW26y3pcr6u1vElx4cOFWP9cnuKIdt2WTXfa54eWlPGiP059Ss5FCB6QqZELuIrv4AqQpsoFXjWbpC1b7ZKarL8CWdB1XClXX+8bZUUxZGxE4J9INACeZ0n9BGNRSLWn3qo0wbSl5bd6NwEI+2DWN18WE1fEHiSs/aFF6hEdobklVxT9KwC8ZS8j+O/B2CsDmWDEITWkwKgch7Q3sbG9Nry0vbswHNJpVNwsXHC0Fg8ycNfBsyQNsmK3WY1/jAPCeMHSEQ== meganpokal27@dsc650bigdata
+Megans-MacBook-Pro:~ meganpokal$ ssh meganpokal27@35.236.15.189
+Welcome to Ubuntu 24.04.3 LTS (GNU/Linux 6.14.0-1020-gcp x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/pro
+
+This system has been minimized by removing packages and content that are
+not required on a system that users do not log into.
+
+To restore this content, you can run the 'unminimize' command.
+
+Expanded Security Maintenance for Applications is not enabled.
+
+84 updates can be applied immediately.
+15 of these updates are standard security updates.
+To see these additional updates run: apt list --upgradable
+
+4 additional security updates can be applied with ESM Apps.
+Learn more about enabling ESM Apps service at https://ubuntu.com/esm
+
+Last login: Wed Feb 25 04:15:55 2026 from 174.233.226.84
+meganpokal27@dsc650bigdata:~$ ls
+dsc650-infra
+meganpokal27@dsc650bigdata:~$ cd dsc650-infra/bellevue-bigdata
+meganpokal27@dsc650bigdata:~/dsc650-infra/bellevue-bigdata$ ls
+hadoop-hive-spark-hbase  kafka  nifi  solr
+meganpokal27@dsc650bigdata:~/dsc650-infra/bellevue-bigdata$ cd hadoop-hive-spark-hbase
+meganpokal27@dsc650bigdata:~/dsc650-infra/bellevue-bigdata/hadoop-hive-spark-hbase$ docker-compose up -d
+Creating network "hadoop-hive-spark-hbase_spark_net" with the default driver
+Creating hadoop-hive-spark-hbase_zoo1_1          ... done
+Creating hadoop-hive-spark-hbase_zoo3_1          ... done
+Creating hadoop-hive-spark-hbase_zoo2_1          ... done
+Creating hadoop-hive-spark-hbase_hivemetastore_1 ... done
+Creating hadoop-hive-spark-hbase_worker2_1       ... done
+Creating hadoop-hive-spark-hbase_worker1_1       ... done
+Creating hadoop-hive-spark-hbase_master_1        ... done
+meganpokal27@dsc650bigdata:~/dsc650-infra/bellevue-bigdata/hadoop-hive-spark-hbase$ docker ps
+CONTAINER ID   IMAGE                COMMAND                  CREATED          STATUS                            PORTS                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           NAMES
+fcbf8dd7e8c8   nasheb/bigdata:1.0   "/entrypoint.sh"         11 seconds ago   Up 8 seconds (health: starting)   1-8041/tcp, 8043-8981/tcp, 0.0.0.0:8982->8982/tcp, [::]:8982->8982/tcp, 8983-9864/tcp, 9866-45079/tcp, 45081-65535/tcp, 0.0.0.0:9865->9865/tcp, [::]:9865->9865/tcp, 0.0.0.0:8102->8042/tcp, [::]:8102->8042/tcp, 0.0.0.0:45082->45080/tcp, [::]:45082->45080/tcp                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               hadoop-hive-spark-hbase_worker2_1
+35067544d3a9   nasheb/bigdata:1.0   "/entrypoint.sh"         11 seconds ago   Up 8 seconds (health: starting)   1-4039/tcp, 0.0.0.0:4040-4043->4040-4043/tcp, [::]:4040-4043->4040-4043/tcp, 4044-8079/tcp, 0.0.0.0:8080->8080/tcp, [::]:8080->8080/tcp, 8081-8087/tcp, 0.0.0.0:8088->8088/tcp, [::]:8088->8088/tcp, 8089-8999/tcp, 0.0.0.0:9000->9000/tcp, [::]:9000->9000/tcp, 9001-9867/tcp, 0.0.0.0:9868->9868/tcp, [::]:9868->9868/tcp, 9869/tcp, 0.0.0.0:9870->9870/tcp, [::]:9870->9870/tcp, 9871-9999/tcp, 0.0.0.0:10000->10000/tcp, [::]:10000->10000/tcp, 10001-10019/tcp, 0.0.0.0:10020->10020/tcp, [::]:10020->10020/tcp, 10021-16009/tcp, 0.0.0.0:16010->16010/tcp, [::]:16010->16010/tcp, 16011-18079/tcp, 0.0.0.0:18080->18080/tcp, [::]:18080->18080/tcp, 18081-19887/tcp, 0.0.0.0:19888->19888/tcp, [::]:19888->19888/tcp, 19889-45079/tcp, 45081-65535/tcp, 0.0.0.0:45080->45080/tcp, [::]:45080->45080/tcp   hadoop-hive-spark-hbase_master_1
+e937e715f82c   nasheb/bigdata:1.0   "/entrypoint.sh"         11 seconds ago   Up 8 seconds (health: starting)   1-8041/tcp, 8043-8980/tcp, 0.0.0.0:8981->8981/tcp, [::]:8981->8981/tcp, 8982-9863/tcp, 9865-45079/tcp, 45081-65535/tcp, 0.0.0.0:9864->9864/tcp, [::]:9864->9864/tcp, 0.0.0.0:8101->8042/tcp, [::]:8101->8042/tcp, 0.0.0.0:45081->45080/tcp, [::]:45081->45080/tcp                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               hadoop-hive-spark-hbase_worker1_1
+ed515cc5eb29   postgres:11.5        "docker-entrypoint.s…"   12 seconds ago   Up 10 seconds (healthy)           0.0.0.0:5432->5432/tcp, [::]:5432->5432/tcp                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     hadoop-hive-spark-hbase_hivemetastore_1
+f1266e4c27e2   zookeeper            "/docker-entrypoint.…"   12 seconds ago   Up 10 seconds                     2888/tcp, 3888/tcp, 8080/tcp, 0.0.0.0:2182->2181/tcp, [::]:2182->2181/tcp                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       hadoop-hive-spark-hbase_zoo2_1
+019147ad6bcd   zookeeper            "/docker-entrypoint.…"   12 seconds ago   Up 10 seconds                     2888/tcp, 3888/tcp, 8080/tcp, 0.0.0.0:2183->2181/tcp, [::]:2183->2181/tcp                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       hadoop-hive-spark-hbase_zoo3_1
+58a850ee6ed3   zookeeper            "/docker-entrypoint.…"   12 seconds ago   Up 10 seconds                     2888/tcp, 3888/tcp, 0.0.0.0:2181->2181/tcp, [::]:2181->2181/tcp, 8080/tcp                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       hadoop-hive-spark-hbase_zoo1_1
+meganpokal27@dsc650bigdata:~/dsc650-infra/bellevue-bigdata/hadoop-hive-spark-hbase$ docker-compose exec master bash
+bash-5.0# start-dfs.sh
+Starting namenodes on [master]
+/usr/program/hadoop/bin/hdfs: /usr/program/hadoop/bin/../libexec/hadoop-config.sh: line 47: syntax error: bad substitution
+Starting datanodes
+/usr/program/hadoop/bin/hdfs: /usr/program/hadoop/bin/../libexec/hadoop-config.sh: line 47: syntax error: bad substitution
+Starting secondary namenodes [master]
+/usr/program/hadoop/bin/hdfs: /usr/program/hadoop/bin/../libexec/hadoop-config.sh: line 47: syntax error: bad substitution
+SLF4J: Class path contains multiple SLF4J bindings.
+SLF4J: Found binding in [jar:file:/usr/program/hadoop/share/hadoop/common/lib/slf4j-log4j12-1.7.25.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/usr/program/tez/lib/slf4j-log4j12-1.7.10.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/usr/program/hive/lib/log4j-slf4j-impl-2.10.0.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
+SLF4J: Actual binding is of type [org.slf4j.impl.Log4jLoggerFactory]
+2026-02-25 04:35:35,595 WARN util.NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+bash-5.0# hdfs dfs -mkdir -p /data
+SLF4J: Class path contains multiple SLF4J bindings.
+SLF4J: Found binding in [jar:file:/usr/program/hadoop/share/hadoop/common/lib/slf4j-log4j12-1.7.25.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/usr/program/tez/lib/slf4j-log4j12-1.7.10.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/usr/program/hive/lib/log4j-slf4j-impl-2.10.0.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
+SLF4J: Actual binding is of type [org.slf4j.impl.Log4jLoggerFactory]
+2026-02-25 04:36:55,185 WARN util.NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+bash-5.0# hdfs dfs -ls /
+SLF4J: Class path contains multiple SLF4J bindings.
+SLF4J: Found binding in [jar:file:/usr/program/hadoop/share/hadoop/common/lib/slf4j-log4j12-1.7.25.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/usr/program/tez/lib/slf4j-log4j12-1.7.10.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/usr/program/hive/lib/log4j-slf4j-impl-2.10.0.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
+SLF4J: Actual binding is of type [org.slf4j.impl.Log4jLoggerFactory]
+2026-02-25 04:37:17,260 WARN util.NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+Found 7 items
+drwxr-xr-x   - root supergroup          0 2026-02-25 04:36 /data
+drwxr-xr-x   - root supergroup          0 2026-02-25 04:31 /hbase
+drwxr-xr-x   - root supergroup          0 2026-02-25 04:29 /log
+drwxr-xr-x   - root supergroup          0 2026-02-25 04:31 /spark-jars
+drwxr-xr-x   - root supergroup          0 2026-02-25 04:31 /tez
+drwxr-xr-x   - root supergroup          0 2026-02-25 04:29 /tmp
+drwxrwx---   - root supergroup          0 2026-02-25 04:30 /user
+bash-5.0# https://raw.githubusercontent.com/mvpokal/carprice650/refs/heads/main/carprices.csv
+bash: https://raw.githubusercontent.com/mvpokal/carprice650/refs/heads/main/carprices.csv: No such file or directory
+bash-5.0# docker-compose exec nifi bash
+bash: docker-compose: command not found
+bash-5.0# cd ..
+bash-5.0# exit
+exit
+meganpokal27@dsc650bigdata:~/dsc650-infra/bellevue-bigdata/hadoop-hive-spark-hbase$ cd ..
+meganpokal27@dsc650bigdata:~/dsc650-infra/bellevue-bigdata$ ls
+hadoop-hive-spark-hbase  kafka  nifi  solr
+meganpokal27@dsc650bigdata:~/dsc650-infra/bellevue-bigdata$ docker-compose exec nifi bash
+meganpokal27@dsc650bigdata:~/dsc650-infra/bellevue-bigdata$ ls
+hadoop-hive-spark-hbase  kafka  nifi  solr
+meganpokal27@dsc650bigdata:~/dsc650-infra/bellevue-bigdata$ cd nifi
+meganpokal27@dsc650bigdata:~/dsc650-infra/bellevue-bigdata/nifi$ docker-compose exec nifi bash
+meganpokal27@dsc650bigdata:~/dsc650-infra/bellevue-bigdata/nifi$ docker-compose up -d
+ERROR: 
+        Can't find a suitable configuration file in this directory or any
+        parent. Are you in the right directory?
+
+        Supported filenames: docker-compose.yml, docker-compose.yaml, compose.yml, compose.yaml
+        
+meganpokal27@dsc650bigdata:~/dsc650-infra/bellevue-bigdata/nifi$ hdfs dfs -mkdir -p /data
+-bash: hdfs: command not found
+meganpokal27@dsc650bigdata:~/dsc650-infra/bellevue-bigdata/nifi$ cd ..
+meganpokal27@dsc650bigdata:~/dsc650-infra/bellevue-bigdata$ hdfs dfs -mkdir -p /data
+-bash: hdfs: command not found
+meganpokal27@dsc650bigdata:~/dsc650-infra/bellevue-bigdata$ ls
+hadoop-hive-spark-hbase  kafka  nifi  solr
+meganpokal27@dsc650bigdata:~/dsc650-infra/bellevue-bigdata$ hdfs dfs -mkdir -p /data
+-bash: hdfs: command not found
+meganpokal27@dsc650bigdata:~/dsc650-infra/bellevue-bigdata$ ls
+hadoop-hive-spark-hbase  kafka  nifi  solr
+meganpokal27@dsc650bigdata:~/dsc650-infra/bellevue-bigdata$ cd hadoop-hive-spark-hbase
+meganpokal27@dsc650bigdata:~/dsc650-infra/bellevue-bigdata/hadoop-hive-spark-hbase$ docker-compose exec master bash
+bash-5.0# hdfs dfs -mkdir -p /data
+SLF4J: Class path contains multiple SLF4J bindings.
+SLF4J: Found binding in [jar:file:/usr/program/hadoop/share/hadoop/common/lib/slf4j-log4j12-1.7.25.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/usr/program/tez/lib/slf4j-log4j12-1.7.10.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/usr/program/hive/lib/log4j-slf4j-impl-2.10.0.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
+SLF4J: Actual binding is of type [org.slf4j.impl.Log4jLoggerFactory]
+2026-02-25 04:48:41,698 WARN util.NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+bash-5.0# hdfs dfs -ls /
+SLF4J: Class path contains multiple SLF4J bindings.
+SLF4J: Found binding in [jar:file:/usr/program/hadoop/share/hadoop/common/lib/slf4j-log4j12-1.7.25.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/usr/program/tez/lib/slf4j-log4j12-1.7.10.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/usr/program/hive/lib/log4j-slf4j-impl-2.10.0.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
+SLF4J: Actual binding is of type [org.slf4j.impl.Log4jLoggerFactory]
+2026-02-25 04:48:55,861 WARN util.NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+Found 7 items
+drwxr-xr-x   - root supergroup          0 2026-02-25 04:36 /data
+drwxr-xr-x   - root supergroup          0 2026-02-25 04:31 /hbase
+drwxr-xr-x   - root supergroup          0 2026-02-25 04:29 /log
+drwxr-xr-x   - root supergroup          0 2026-02-25 04:31 /spark-jars
+drwxr-xr-x   - root supergroup          0 2026-02-25 04:31 /tez
+drwxr-xr-x   - root supergroup          0 2026-02-25 04:29 /tmp
+drwxrwx---   - root supergroup          0 2026-02-25 04:30 /user
+bash-5.0# wget https://raw.githubusercontent.com/mvpokal/carprice650/refs/heads/main/carprices.csv -O /tmp/carprices.csv
+Connecting to raw.githubusercontent.com (185.199.110.133:443)
+carprices.csv        100% |****************************************************************************|  9741  0:00:00 ETA
+bash-5.0# hdfs dfs -put /tmp/carprices.csv /data/
+SLF4J: Class path contains multiple SLF4J bindings.
+SLF4J: Found binding in [jar:file:/usr/program/hadoop/share/hadoop/common/lib/slf4j-log4j12-1.7.25.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/usr/program/tez/lib/slf4j-log4j12-1.7.10.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/usr/program/hive/lib/log4j-slf4j-impl-2.10.0.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
+SLF4J: Actual binding is of type [org.slf4j.impl.Log4jLoggerFactory]
+2026-02-25 04:50:28,201 WARN util.NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+bash-5.0# hdfs dfs -ls /data
+SLF4J: Class path contains multiple SLF4J bindings.
+SLF4J: Found binding in [jar:file:/usr/program/hadoop/share/hadoop/common/lib/slf4j-log4j12-1.7.25.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/usr/program/tez/lib/slf4j-log4j12-1.7.10.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/usr/program/hive/lib/log4j-slf4j-impl-2.10.0.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
+SLF4J: Actual binding is of type [org.slf4j.impl.Log4jLoggerFactory]
+2026-02-25 04:50:51,510 WARN util.NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+Found 1 items
+-rw-r--r--   1 root supergroup       9741 2026-02-25 04:50 /data/carprices.csv
+bash-5.0# hdfs dfs -ls
+SLF4J: Class path contains multiple SLF4J bindings.
+SLF4J: Found binding in [jar:file:/usr/program/hadoop/share/hadoop/common/lib/slf4j-log4j12-1.7.25.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/usr/program/tez/lib/slf4j-log4j12-1.7.10.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/usr/program/hive/lib/log4j-slf4j-impl-2.10.0.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
+SLF4J: Actual binding is of type [org.slf4j.impl.Log4jLoggerFactory]
+2026-02-25 04:58:25,322 WARN util.NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+Found 1 items
+drwxr-xr-x   - root supergroup          0 2026-02-25 04:30 .hiveJars
+bash-5.0# exit
+exit
+meganpokal27@dsc650bigdata:~/dsc650-infra/bellevue-bigdata/hadoop-hive-spark-hbase$ docker-compose exec master bash
+bash-5.0# hive
+SLF4J: Class path contains multiple SLF4J bindings.
+SLF4J: Found binding in [jar:file:/usr/program/hive/lib/log4j-slf4j-impl-2.10.0.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/usr/program/hadoop/share/hadoop/common/lib/slf4j-log4j12-1.7.25.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/usr/program/tez/lib/slf4j-log4j12-1.7.10.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
+SLF4J: Actual binding is of type [org.apache.logging.slf4j.Log4jLoggerFactory]
+Hive Session ID = b58824ab-1bbb-44bb-a6d4-f508c60fd392
+
+Logging initialized using configuration in file:/usr/program/hive/conf/hive-log4j2.properties Async: true
+Hive Session ID = 7012d3b4-d582-43e9-9517-7aef71449960
+2026-02-25 05:00:05,551 INFO  [Tez session start thread] client.RMProxy: Connecting to ResourceManager at master/172.28.1.1:8032
+2026-02-25 05:00:05,880 INFO  [pool-7-thread-1] client.RMProxy: Connecting to ResourceManager at master/172.28.1.1:8032
+hive> hdfs dfs -cat /data/carprices.csv | head -n 5
+    > 
+    > exit
+    > cd ..
+    > exit
+    > 
+    > 2026-02-25 05:00:05,880 INFO  [pool-7-thread-1] client.RMProxy: Connecting to ResourceManager at master/172.28.1.1:8032
+    > hive> hdfs dfs -cat /data/carprices.csv | head -n 5
+    >     > 
+    >     > 
+    > exit
+    > quit
+    > !exit
+    > quit;
+NoViableAltException(24@[])
+	at org.apache.hadoop.hive.ql.parse.HiveParser.statement(HiveParser.java:1387)
+	at org.apache.hadoop.hive.ql.parse.ParseDriver.parse(ParseDriver.java:220)
+	at org.apache.hadoop.hive.ql.parse.ParseUtils.parse(ParseUtils.java:74)
+	at org.apache.hadoop.hive.ql.parse.ParseUtils.parse(ParseUtils.java:67)
+	at org.apache.hadoop.hive.ql.Driver.compile(Driver.java:616)
+	at org.apache.hadoop.hive.ql.Driver.compileInternal(Driver.java:1826)
+	at org.apache.hadoop.hive.ql.Driver.compileAndRespond(Driver.java:1773)
+	at org.apache.hadoop.hive.ql.Driver.compileAndRespond(Driver.java:1768)
+	at org.apache.hadoop.hive.ql.reexec.ReExecDriver.compileAndRespond(ReExecDriver.java:126)
+	at org.apache.hadoop.hive.ql.reexec.ReExecDriver.run(ReExecDriver.java:214)
+	at org.apache.hadoop.hive.cli.CliDriver.processLocalCmd(CliDriver.java:239)
+	at org.apache.hadoop.hive.cli.CliDriver.processCmd(CliDriver.java:188)
+	at org.apache.hadoop.hive.cli.CliDriver.processLine(CliDriver.java:402)
+	at org.apache.hadoop.hive.cli.CliDriver.executeDriver(CliDriver.java:821)
+	at org.apache.hadoop.hive.cli.CliDriver.run(CliDriver.java:759)
+	at org.apache.hadoop.hive.cli.CliDriver.main(CliDriver.java:683)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.hadoop.util.RunJar.run(RunJar.java:323)
+	at org.apache.hadoop.util.RunJar.main(RunJar.java:236)
+FAILED: ParseException line 1:0 cannot recognize input near 'hdfs' 'dfs' '-'
+hive> exit
+    > quit;
+NoViableAltException(24@[])
+	at org.apache.hadoop.hive.ql.parse.HiveParser.statement(HiveParser.java:1387)
+	at org.apache.hadoop.hive.ql.parse.ParseDriver.parse(ParseDriver.java:220)
+	at org.apache.hadoop.hive.ql.parse.ParseUtils.parse(ParseUtils.java:74)
+	at org.apache.hadoop.hive.ql.parse.ParseUtils.parse(ParseUtils.java:67)
+	at org.apache.hadoop.hive.ql.Driver.compile(Driver.java:616)
+	at org.apache.hadoop.hive.ql.Driver.compileInternal(Driver.java:1826)
+	at org.apache.hadoop.hive.ql.Driver.compileAndRespond(Driver.java:1773)
+	at org.apache.hadoop.hive.ql.Driver.compileAndRespond(Driver.java:1768)
+	at org.apache.hadoop.hive.ql.reexec.ReExecDriver.compileAndRespond(ReExecDriver.java:126)
+	at org.apache.hadoop.hive.ql.reexec.ReExecDriver.run(ReExecDriver.java:214)
+	at org.apache.hadoop.hive.cli.CliDriver.processLocalCmd(CliDriver.java:239)
+	at org.apache.hadoop.hive.cli.CliDriver.processCmd(CliDriver.java:188)
+	at org.apache.hadoop.hive.cli.CliDriver.processLine(CliDriver.java:402)
+	at org.apache.hadoop.hive.cli.CliDriver.executeDriver(CliDriver.java:821)
+	at org.apache.hadoop.hive.cli.CliDriver.run(CliDriver.java:759)
+	at org.apache.hadoop.hive.cli.CliDriver.main(CliDriver.java:683)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.hadoop.util.RunJar.run(RunJar.java:323)
+	at org.apache.hadoop.util.RunJar.main(RunJar.java:236)
+FAILED: ParseException line 1:0 cannot recognize input near 'exit' 'quit' '<EOF>'
+hive> !quit
+    > !exit
+    > exit;
+Exception raised from Shell command Failed to execute quit
+!exit
+exit
+hive> !exit
+    > bash-5.0# 
+bash-5.0# exit
+exit
+meganpokal27@dsc650bigdata:~/dsc650-infra/bellevue-bigdata/hadoop-hive-spark-hbase$ docker-compose exec master bash
+bash-5.0# hdfs dfs -cat /data/carprices.csv | head -n 5
+SLF4J: Class path contains multiple SLF4J bindings.
+SLF4J: Found binding in [jar:file:/usr/program/hadoop/share/hadoop/common/lib/slf4j-log4j12-1.7.25.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/usr/program/tez/lib/slf4j-log4j12-1.7.10.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/usr/program/hive/lib/log4j-slf4j-impl-2.10.0.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
+SLF4J: Actual binding is of type [org.slf4j.impl.Log4jLoggerFactory]
+2026-02-25 05:07:22,576 WARN util.NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+car_prices
+year,make,model,trim,body,transmission,vin,state,condition,odometer,color,interior,seller,mmr,sellingprice,saledate
+2015,Kia,Sorento,LX,SUV,automatic,5xyktca69fg566472,ca,5,16639,white,black,kia motors america  inc,20500,21500,Tue Dec 16 2014 12:30:00 GMT-0800 (PST)
+2015,Kia,Sorento,LX,SUV,automatic,5xyktca69fg561319,ca,5,9393,white,beige,kia motors america  inc,20800,21500,Tue Dec 16 2014 12:30:00 GMT-0800 (PST)
+2015,Volvo,S60,T5,Sedan,automatic,yv1612tb4f1310987,ca,41,14282,white,black,volvo na rep/world omni,27500,27750,Thu Jan 29 2015 04:30:00 GMT-0800 (PST)
+bash-5.0# hive
+SLF4J: Class path contains multiple SLF4J bindings.
+SLF4J: Found binding in [jar:file:/usr/program/hive/lib/log4j-slf4j-impl-2.10.0.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/usr/program/hadoop/share/hadoop/common/lib/slf4j-log4j12-1.7.25.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/usr/program/tez/lib/slf4j-log4j12-1.7.10.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
+SLF4J: Actual binding is of type [org.apache.logging.slf4j.Log4jLoggerFactory]
+Hive Session ID = 8abdf145-ec12-491e-a686-765b1a79a607
+
+Logging initialized using configuration in file:/usr/program/hive/conf/hive-log4j2.properties Async: true
+2026-02-25 05:09:10,090 INFO  [Tez session start thread] client.RMProxy: Connecting to ResourceManager at master/172.28.1.1:8032
+Hive Session ID = ecd7d5d7-d3e4-474f-aba2-da79152ccd2a
+2026-02-25 05:09:10,413 INFO  [pool-7-thread-1] client.RMProxy: Connecting to ResourceManager at master/172.28.1.1:8032
+hive> hive> CREATE TABLE carprices (
+    >     year INT,
+    >     make STRING,
+    >     model STRING,
+    >     trim STRING,
+    >     body STRING,
+    >     transmission STRING,
+    >     vin STRING,
+    >     state STRING,
+    >     condition INT,
+    >     odometer INT,
+    >     color STRING,
+    >     interior STRING,
+    >     seller STRING,
+    >     mmr INT,
+    >     sellingprice INT,
+    >     saledate STRING
+    > )
+    > ROW FORMAT DELIMITED
+    > FIELDS TERMINATED BY ','
+    > STORED AS TEXTFILE;
+NoViableAltException(24@[])
+	at org.apache.hadoop.hive.ql.parse.HiveParser.statement(HiveParser.java:1387)
+	at org.apache.hadoop.hive.ql.parse.ParseDriver.parse(ParseDriver.java:220)
+	at org.apache.hadoop.hive.ql.parse.ParseUtils.parse(ParseUtils.java:74)
+	at org.apache.hadoop.hive.ql.parse.ParseUtils.parse(ParseUtils.java:67)
+	at org.apache.hadoop.hive.ql.Driver.compile(Driver.java:616)
+	at org.apache.hadoop.hive.ql.Driver.compileInternal(Driver.java:1826)
+	at org.apache.hadoop.hive.ql.Driver.compileAndRespond(Driver.java:1773)
+	at org.apache.hadoop.hive.ql.Driver.compileAndRespond(Driver.java:1768)
+	at org.apache.hadoop.hive.ql.reexec.ReExecDriver.compileAndRespond(ReExecDriver.java:126)
+	at org.apache.hadoop.hive.ql.reexec.ReExecDriver.run(ReExecDriver.java:214)
+	at org.apache.hadoop.hive.cli.CliDriver.processLocalCmd(CliDriver.java:239)
+	at org.apache.hadoop.hive.cli.CliDriver.processCmd(CliDriver.java:188)
+	at org.apache.hadoop.hive.cli.CliDriver.processLine(CliDriver.java:402)
+	at org.apache.hadoop.hive.cli.CliDriver.executeDriver(CliDriver.java:821)
+	at org.apache.hadoop.hive.cli.CliDriver.run(CliDriver.java:759)
+	at org.apache.hadoop.hive.cli.CliDriver.main(CliDriver.java:683)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.hadoop.util.RunJar.run(RunJar.java:323)
+	at org.apache.hadoop.util.RunJar.main(RunJar.java:236)
+FAILED: ParseException line 1:0 cannot recognize input near 'hive' '>' 'CREATE'
+hive> CREATE TABLE carprices (
+    >     year INT,
+    >     make STRING,
+    >     model STRING,
+    >     trim STRING,
+    >     body STRING,
+    >     transmission STRING,
+    >     vin STRING,
+    >     state STRING,
+    >     condition INT,
+    >     odometer INT,
+    >     color STRING,
+    >     interior STRING,
+    >     seller STRING,
+    >     mmr INT,
+    >     sellingprice INT,
+    >     saledate STRING
+    > )
+    > ROW FORMAT DELIMITED
+    > FIELDS TERMINATED BY ','
+    > STORED AS TEXTFILE;
+OK
+Time taken: 1.4 seconds
+hive> 
+    > LOAD DATA INPATH '/data/carprices.csv' INTO TABLE carprices;
+Loading data to table default.carprices
+OK
+Time taken: 0.405 seconds
+hive> SELECT * FROM carprices LIMIT 5;
+OK
+NULL	NULL	NULL	NULL	NULL	NULL	NULL	NULL	NULL	NULL	NULL	NULL	NULL	NULL	NULL	NULL
+NULL	make	model	trim	body	transmission	vin	state	NULL	NULL	color	interior	seller	NULL	NULL	saledate
+2015	Kia	Sorento	LX	SUV	automatic	5xyktca69fg566472	ca	5	16639	white	black	kia motors america  inc	20500	21500	Tue Dec 16 2014 12:30:00 GMT-0800 (PST)
+2015	Kia	Sorento	LX	SUV	automatic	5xyktca69fg561319	ca	5	9393	white	beige	kia motors america  inc	20800	21500	Tue Dec 16 2014 12:30:00 GMT-0800 (PST)
+2015	Volvo	S60	T5	Sedan	automatic	yv1612tb4f1310987	ca	41	14282	white	black	volvo na rep/world omni	27500	27750	Thu Jan 29 2015 04:30:00 GMT-0800 (PST)
+Time taken: 1.854 seconds, Fetched: 5 row(s)
+hive> SELECT make, COUNT(*) AS num_sales, AVG(sellingprice) AS avg_price
+    >      > FROM carprices
+    >      > GROUP BY make
+    >      > ORDER BY num_sales DESC;
+FAILED: ParseException line 2:5 missing EOF at '>' near 'avg_price'
+hive> SELECT make, COUNT(*) AS num_sales, AVG(sellingprice) AS avg_price
+    > FROM carprices
+    > GROUP BY make
+    > ORDER BY num_sales DESC;
+2026-02-25 05:27:58,694 INFO  [8abdf145-ec12-491e-a686-765b1a79a607 main] reducesink.VectorReduceSinkObjectHashOperator: VectorReduceSinkObjectHashOperator constructor vectorReduceSinkInfo org.apache.hadoop.hive.ql.plan.VectorReduceSinkInfo@5d20195b
+Query ID = root_20260225052758_25ec2d7d-b53c-4565-9a6f-a605d0adf6df
+Total jobs = 1
+Launching Job 1 out of 1
+Tez session was closed. Reopening...
+2026-02-25 05:27:59,196 INFO  [8abdf145-ec12-491e-a686-765b1a79a607 main] client.RMProxy: Connecting to ResourceManager at master/172.28.1.1:8032
+Session re-established.
+Session re-established.
+Status: Running (Executing on YARN cluster with App id application_1771993763345_0006)
+
+----------------------------------------------------------------------------------------------
+        VERTICES      MODE        STATUS  TOTAL  COMPLETED  RUNNING  PENDING  FAILED  KILLED  
+----------------------------------------------------------------------------------------------
+Map 1 .......... container     SUCCEEDED      1          1        0        0       0       0  
+Reducer 2 ...... container     SUCCEEDED      1          1        0        0       0       0  
+Reducer 3 ...... container     SUCCEEDED      1          1        0        0       0       0  
+----------------------------------------------------------------------------------------------
+VERTICES: 03/03  [==========================>>] 100%  ELAPSED TIME: 5.24 s     
+----------------------------------------------------------------------------------------------
+OK
+Kia	21	22773.809523809523
+Hyundai	10	8840.0
+Volvo	9	30083.333333333332
+Nissan	7	11085.714285714286
+Chevrolet	6	33250.0
+Audi	3	22266.666666666668
+Ford	2	12000.0
+NULL	1	NULL
+Lexus	1	38400.0
+make	1	NULL
+Time taken: 12.038 seconds, Fetched: 10 row(s)
+hive> quit
+    > bash-5.0# quit
+bash: quit: command not found
+bash-5.0# exit
+exit
+meganpokal27@dsc650bigdata:~/dsc650-infra/bellevue-bigdata/hadoop-hive-spark-hbase$ exit
+logout
+Connection to 35.236.15.189 closed.
+Megans-MacBook-Pro:~ meganpokal$ ssh-keygen
+Generating public/private ed25519 key pair.
+Enter file in which to save the key (/Users/meganpokal/.ssh/id_ed25519): 
+/Users/meganpokal/.ssh/id_ed25519 already exists.
+Overwrite (y/n)? y
+Enter passphrase (empty for no passphrase): 
+Enter same passphrase again: 
+Your identification has been saved in /Users/meganpokal/.ssh/id_ed25519
+Your public key has been saved in /Users/meganpokal/.ssh/id_ed25519.pub
+The key fingerprint is:
+SHA256:IZDhS3enx4YCsCXA8eThV73dgoio01NFVQyH0pddMiI meganpokal@Megans-MacBook-Pro.local
+The key's randomart image is:
++--[ED25519 256]--+
+|oo+o+o.o+E=+oo.. |
+| .=*o..o +o+..o  |
+|  .+=.= = * .    |
+|   o.* + O o .   |
+|  o o . S + .    |
+| o o   . o       |
+|  . .            |
+|                 |
+|                 |
++----[SHA256]-----+
+Megans-MacBook-Pro:~ meganpokal$ cat ~/.ssh/id_rsa.pub
+ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQC6t4vM48nXgTYgrdmNAsGHYjz1MmaJTu7v/E76wCY3aoB2I6QmwxS/aQZqrN/tGWH/uKYLTWS7LAyM2mWm9MTwIbOOD04FvqP6pVVA1+2iaxnK/BY5yud21GgLlIOGI3hnZKhH+3vc8TCSIekSbkXUsFT2EPS8vWsX1zoafZKr/Esf+pC2eR0MS+z0CWJ8iQvIxP8sFuQTjxILVcXDrua9rpOnDTbFbBssr3Otd5UricD/GtRdH7xi8kNjKDz8/xMBzBar1UM+1DT1ZHk63IjrxALvCoeQLKZE525Co4jSE3WfFEDGfUekbdrYGc1IoeGxPN3kW63Qk6oMHqsJgshSvZa+TyihCn1wF6mVIQPu9ioG5Eoz+3TfsjEHmcRctww2XbpyrMjcUFT/7ed31JIpYwli4kZzcPsCzMWyeW26y3pcr6u1vElx4cOFWP9cnuKIdt2WTXfa54eWlPGiP059Ss5FCB6QqZELuIrv4AqQpsoFXjWbpC1b7ZKarL8CWdB1XClXX+8bZUUxZGxE4J9INACeZ0n9BGNRSLWn3qo0wbSl5bd6NwEI+2DWN18WE1fEHiSs/aFF6hEdobklVxT9KwC8ZS8j+O/B2CsDmWDEITWkwKgch7Q3sbG9Nry0vbswHNJpVNwsXHC0Fg8ycNfBsyQNsmK3WY1/jAPCeMHSEQ== meganpokal27@dsc650bigdata
+Megans-MacBook-Pro:~ meganpokal$ ssh meganpokal27@35.236.15.189
+ssh: connect to host 35.236.15.189 port 22: Operation timed out
+Megans-MacBook-Pro:~ meganpokal$ ssh meganpokal27@35.236.15.189
+Welcome to Ubuntu 24.04.3 LTS (GNU/Linux 6.17.0-1008-gcp x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/pro
+
+This system has been minimized by removing packages and content that are
+not required on a system that users do not log into.
+
+To restore this content, you can run the 'unminimize' command.
+
+Expanded Security Maintenance for Applications is not enabled.
+
+69 updates can be applied immediately.
+To see these additional updates run: apt list --upgradable
+
+4 additional security updates can be applied with ESM Apps.
+Learn more about enabling ESM Apps service at https://ubuntu.com/esm
+
+Last login: Wed Feb 25 04:27:27 2026 from 174.233.226.84
+meganpokal27@dsc650bigdata:~$ ls
+dsc650-infra
+meganpokal27@dsc650bigdata:~$ cd dsc650-infra/bellevue-bigdata
+meganpokal27@dsc650bigdata:~/dsc650-infra/bellevue-bigdata$ ls
+hadoop-hive-spark-hbase  kafka  nifi  solr
+meganpokal27@dsc650bigdata:~/dsc650-infra/bellevue-bigdata$ cd dsc650-infra/bellevue-bigdata/hadoop-hive-spark-hbase
+-bash: cd: dsc650-infra/bellevue-bigdata/hadoop-hive-spark-hbase: No such file or directory
+meganpokal27@dsc650bigdata:~/dsc650-infra/bellevue-bigdata$ cd hadoop-hive-spark-hbase
+meganpokal27@dsc650bigdata:~/dsc650-infra/bellevue-bigdata/hadoop-hive-spark-hbase$ docker-compose up -d
+Starting hadoop-hive-spark-hbase_hivemetastore_1 ... 
+hadoop-hive-spark-hbase_zoo1_1 is up-to-date
+hadoop-hive-spark-hbase_zoo3_1 is up-to-date
+Starting hadoop-hive-spark-hbase_hivemetastore_1 ... done
+Starting hadoop-hive-spark-hbase_worker2_1       ... done
+Starting hadoop-hive-spark-hbase_worker1_1       ... done
+Starting hadoop-hive-spark-hbase_master_1        ... done
+meganpokal27@dsc650bigdata:~/dsc650-infra/bellevue-bigdata/hadoop-hive-spark-hbase$ docker-compose exec master bash
+bash-5.0# pip3 install numpy happybase
+Collecting numpy
+  Downloading numpy-1.21.6.zip (10.3 MB)
+     |████████████████████████████████| 10.3 MB 12.3 MB/s 
+  Installing build dependencies ... done
+  Getting requirements to build wheel ... done
+    Preparing wheel metadata ... done
+Collecting happybase
+  Downloading happybase-1.3.0-py2.py3-none-any.whl (26 kB)
+Collecting importlib-resources
+  Downloading importlib_resources-5.12.0-py3-none-any.whl (36 kB)
+Collecting six
+  Downloading six-1.17.0-py2.py3-none-any.whl (11 kB)
+Collecting thriftpy2>=0.4
+  Downloading thriftpy2-0.6.0.tar.gz (996 kB)
+     |████████████████████████████████| 996 kB 31.3 MB/s 
+  Installing build dependencies ... done
+  WARNING: Missing build requirements in pyproject.toml for thriftpy2>=0.4 from https://files.pythonhosted.org/packages/cc/7c/bc038fb868b6b5474101197d42866fbc61839c4f739816587a748ac68541/thriftpy2-0.6.0.tar.gz#sha256=621c263f99274d51a9a1deecf301845f1408d497bdafed682db6155132a99cf4 (from happybase).
+  WARNING: The project does not specify a build backend, and pip cannot fall back to setuptools without 'wheel'.
+  Getting requirements to build wheel ... done
+  Installing backend dependencies ... done
+    Preparing wheel metadata ... done
+Collecting zipp>=3.1.0; python_version < "3.10"
+  Downloading zipp-3.15.0-py3-none-any.whl (6.8 kB)
+Collecting typing-extensions>=3.7.4; python_version < "3.8"
+  Downloading typing_extensions-4.7.1-py3-none-any.whl (33 kB)
+Collecting ply<4.0,>=3.4
+  Downloading ply-3.11-py2.py3-none-any.whl (49 kB)
+     |████████████████████████████████| 49 kB 8.3 MB/s 
+Building wheels for collected packages: numpy, thriftpy2
+  Building wheel for numpy (PEP 517) ... /
+done
+  Created wheel for numpy: filename=numpy-1.21.6-cp37-cp37m-linux_x86_64.whl size=16643972 sha256=850ce5edb44b4c218c35278b28e2b3497c23711ce3858acd2dd11704cee32799
+  Stored in directory: /root/.cache/pip/wheels/4e/7e/9e/0fde042ccff2493994076dac9c3fbd78feb444c3bd94eb386a
+  Building wheel for thriftpy2 (PEP 517) ... |
+done
+  Created wheel for thriftpy2: filename=thriftpy2-0.6.0-cp37-cp37m-linux_x86_64.whl size=1479773 sha256=857f39989ea9b0d01f796c832db70c3fcf57b6c2171d05fa3741633d559dccbf
+  Stored in directory: /root/.cache/pip/wheels/ce/e1/d3/38770f98821c966d3ad3bb392293b6e0bc189e89580338db63
+Successfully built numpy thriftpy2
+Installing collected packages: numpy, zipp, importlib-resources, six, typing-extensions, ply, thriftpy2, happybase
+Successfully installed happybase-1.3.0 importlib-resources-5.12.0 numpy-1.21.6 ply-3.11 six-1.17.0 thriftpy2-0.6.0 typing-extensions-4.7.1 zipp-3.15.0
+bash-5.0# 
+bash-5.0# 
+bash-5.0# exit
+exit
+meganpokal27@dsc650bigdata:~/dsc650-infra/bellevue-bigdata/hadoop-hive-spark-hbase$ docker-compose exec worker1 bash
+bash-5.0# pip3 install numpy happybase
+Collecting numpy
+  Downloading numpy-1.21.6.zip (10.3 MB)
+     |████████████████████████████████| 10.3 MB 12.4 MB/s 
+  Installing build dependencies ... done
+  Getting requirements to build wheel ... done
+    Preparing wheel metadata ... done
+Collecting happybase
+  Downloading happybase-1.3.0-py2.py3-none-any.whl (26 kB)
+Collecting importlib-resources
+  Downloading importlib_resources-5.12.0-py3-none-any.whl (36 kB)
+Collecting six
+  Downloading six-1.17.0-py2.py3-none-any.whl (11 kB)
+Collecting thriftpy2>=0.4
+  Downloading thriftpy2-0.6.0.tar.gz (996 kB)
+     |████████████████████████████████| 996 kB 31.8 MB/s 
+  Installing build dependencies ... done
+  WARNING: Missing build requirements in pyproject.toml for thriftpy2>=0.4 from https://files.pythonhosted.org/packages/cc/7c/bc038fb868b6b5474101197d42866fbc61839c4f739816587a748ac68541/thriftpy2-0.6.0.tar.gz#sha256=621c263f99274d51a9a1deecf301845f1408d497bdafed682db6155132a99cf4 (from happybase).
+  WARNING: The project does not specify a build backend, and pip cannot fall back to setuptools without 'wheel'.
+  Getting requirements to build wheel ... done
+  Installing backend dependencies ... done
+    Preparing wheel metadata ... done
+Collecting zipp>=3.1.0; python_version < "3.10"
+  Downloading zipp-3.15.0-py3-none-any.whl (6.8 kB)
+Collecting typing-extensions>=3.7.4; python_version < "3.8"
+  Downloading typing_extensions-4.7.1-py3-none-any.whl (33 kB)
+Collecting ply<4.0,>=3.4
+  Downloading ply-3.11-py2.py3-none-any.whl (49 kB)
+     |████████████████████████████████| 49 kB 8.1 MB/s 
+Building wheels for collected packages: numpy, thriftpy2
+  Building wheel for numpy (PEP 517) ... |
+-
+-
+done
+  Created wheel for numpy: filename=numpy-1.21.6-cp37-cp37m-linux_x86_64.whl size=16643977 sha256=c6bc4086654886bba4390173b7f12b40a0a54dc9bd29265af4ccf93b33634700
+  Stored in directory: /root/.cache/pip/wheels/4e/7e/9e/0fde042ccff2493994076dac9c3fbd78feb444c3bd94eb386a
+  Building wheel for thriftpy2 (PEP 517) ... \
+done
+  Created wheel for thriftpy2: filename=thriftpy2-0.6.0-cp37-cp37m-linux_x86_64.whl size=1479788 sha256=7378e6c419fe83fced7dcdd197e15ad9bd41cab7873dc368bce75ee49fba945e
+  Stored in directory: /root/.cache/pip/wheels/ce/e1/d3/38770f98821c966d3ad3bb392293b6e0bc189e89580338db63
+Successfully built numpy thriftpy2
+Installing collected packages: numpy, zipp, importlib-resources, six, typing-extensions, ply, thriftpy2, happybase
+Successfully installed happybase-1.3.0 importlib-resources-5.12.0 numpy-1.21.6 ply-3.11 six-1.17.0 thriftpy2-0.6.0 typing-extensions-4.7.1 zipp-3.15.0
+bash-5.0# 
+bash-5.0# 
+bash-5.0# 
+bash-5.0# 
+bash-5.0# exit
+exit
+meganpokal27@dsc650bigdata:~/dsc650-infra/bellevue-bigdata/hadoop-hive-spark-hbase$ docker-compose exec worker2 bash
+bash-5.0# pip3 install numpy happybase
+Collecting numpy
+  Downloading numpy-1.21.6.zip (10.3 MB)
+     |████████████████████████████████| 10.3 MB 11.4 MB/s 
+  Installing build dependencies ... done
+  Getting requirements to build wheel ... done
+    Preparing wheel metadata ... done
+Collecting happybase
+  Downloading happybase-1.3.0-py2.py3-none-any.whl (26 kB)
+Collecting importlib-resources
+  Downloading importlib_resources-5.12.0-py3-none-any.whl (36 kB)
+Collecting six
+  Downloading six-1.17.0-py2.py3-none-any.whl (11 kB)
+Collecting thriftpy2>=0.4
+  Downloading thriftpy2-0.6.0.tar.gz (996 kB)
+     |████████████████████████████████| 996 kB 24.1 MB/s 
+  Installing build dependencies ... done
+  WARNING: Missing build requirements in pyproject.toml for thriftpy2>=0.4 from https://files.pythonhosted.org/packages/cc/7c/bc038fb868b6b5474101197d42866fbc61839c4f739816587a748ac68541/thriftpy2-0.6.0.tar.gz#sha256=621c263f99274d51a9a1deecf301845f1408d497bdafed682db6155132a99cf4 (from happybase).
+  WARNING: The project does not specify a build backend, and pip cannot fall back to setuptools without 'wheel'.
+  Getting requirements to build wheel ... done
+  Installing backend dependencies ... done
+    Preparing wheel metadata ... done
+Collecting zipp>=3.1.0; python_version < "3.10"
+  Downloading zipp-3.15.0-py3-none-any.whl (6.8 kB)
+Collecting typing-extensions>=3.7.4; python_version < "3.8"
+  Downloading typing_extensions-4.7.1-py3-none-any.whl (33 kB)
+Collecting ply<4.0,>=3.4
+  Downloading ply-3.11-py2.py3-none-any.whl (49 kB)
+     |████████████████████████████████| 49 kB 7.6 MB/s 
+Building wheels for collected packages: numpy, thriftpy2
+  Building wheel for numpy (PEP 517) ... /
+done
+  Created wheel for numpy: filename=numpy-1.21.6-cp37-cp37m-linux_x86_64.whl size=16644652 sha256=69dc301764c3bc58e6331ff988874ea462672b6b5f2f7c8e6f3df00ecd4aba8c
+  Stored in directory: /root/.cache/pip/wheels/4e/7e/9e/0fde042ccff2493994076dac9c3fbd78feb444c3bd94eb386a
+  Building wheel for thriftpy2 (PEP 517) ... done
+  Created wheel for thriftpy2: filename=thriftpy2-0.6.0-cp37-cp37m-linux_x86_64.whl size=1479769 sha256=728051b4e95f82a31127dd71515a86b0c99678a0f6dc16734e9fc38f86f2647f
+  Stored in directory: /root/.cache/pip/wheels/ce/e1/d3/38770f98821c966d3ad3bb392293b6e0bc189e89580338db63
+Successfully built numpy thriftpy2
+Installing collected packages: numpy, zipp, importlib-resources, six, typing-extensions, ply, thriftpy2, happybase
+Successfully installed happybase-1.3.0 importlib-resources-5.12.0 numpy-1.21.6 ply-3.11 six-1.17.0 thriftpy2-0.6.0 typing-extensions-4.7.1 zipp-3.15.0
+bash-5.0# 
+bash-5.0# exit
+exit
+meganpokal27@dsc650bigdata:~/dsc650-infra/bellevue-bigdata/hadoop-hive-spark-hbase$ docker-compose exec master bash
+bash-5.0# start-hbase.sh
+master running as process 1229. Stop it first.
+worker2: running regionserver, logging to /usr/program/hbase/bin/../logs/hbase-root-regionserver-worker2.out
+worker1: running regionserver, logging to /usr/program/hbase/bin/../logs/hbase-root-regionserver-worker1.out
+bash-5.0# hbase thrift start -threadpool
+2026-03-02 23:32:23,809 INFO  [main] thrift.ThriftServer: ***** STARTING service 'ThriftServer' *****
+2026-03-02 23:32:23,812 INFO  [main] util.VersionInfo: HBase 2.3.6
+2026-03-02 23:32:23,812 INFO  [main] util.VersionInfo: Source code repository git://7257be94c61e/home/stack/hbase-rm/output/hbase revision=7414579f2620fca6b75146c29ab2726fc4643ac9
+2026-03-02 23:32:23,812 INFO  [main] util.VersionInfo: Compiled by stack on Wed Jul 28 22:24:42 UTC 2021
+2026-03-02 23:32:23,812 INFO  [main] util.VersionInfo: From source with checksum eb11554aeb325ccaf65a9b469efe7ddcdc0bb0eec35a53f77d0c5c09eac5722007a05ef62349c7afb8005ed1abe32e772f99bb2137194641f5ce51d525aa5634
+2026-03-02 23:32:24,074 INFO  [main] thrift.ImplType: Using thrift server type threadpool
+2026-03-02 23:32:24,106 WARN  [main] util.NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+2026-03-02 23:32:24,504 INFO  [main] metrics.MetricRegistries: Loaded MetricRegistries class org.apache.hadoop.hbase.metrics.impl.MetricRegistriesImpl
+2026-03-02 23:32:24,553 INFO  [main] hbase.ChoreService: Chore ScheduledChore name=ConnectionCleaner, period=10000, unit=MILLISECONDS is enabled.
+2026-03-02 23:32:24,624 INFO  [main] thrift.ThriftServer: starting HBase ThreadPool Thrift server on /0.0.0.0:9090
+2026-03-02 23:32:24,650 INFO  [main] util.log: Logging initialized @1171ms
+2026-03-02 23:32:24,738 INFO  [main] http.HttpServer: Added global filter 'safety' (class=org.apache.hadoop.hbase.http.HttpServer$QuotingInputFilter)
+2026-03-02 23:32:24,738 INFO  [main] http.HttpServer: Added global filter 'clickjackingprevention' (class=org.apache.hadoop.hbase.http.ClickjackingPreventionFilter)
+2026-03-02 23:32:24,739 INFO  [main] http.HttpServer: Added global filter 'securityheaders' (class=org.apache.hadoop.hbase.http.SecurityHeadersFilter)
+2026-03-02 23:32:24,742 INFO  [main] http.HttpServer: Added filter static_user_filter (class=org.apache.hadoop.hbase.http.lib.StaticUserWebFilter$StaticUserFilter) to context thrift
+2026-03-02 23:32:24,742 INFO  [main] http.HttpServer: Added filter static_user_filter (class=org.apache.hadoop.hbase.http.lib.StaticUserWebFilter$StaticUserFilter) to context logs
+2026-03-02 23:32:24,742 INFO  [main] http.HttpServer: Added filter static_user_filter (class=org.apache.hadoop.hbase.http.lib.StaticUserWebFilter$StaticUserFilter) to context static
+2026-03-02 23:32:24,750 INFO  [main] http.HttpServer: ASYNC_PROFILER_HOME environment variable and async.profiler.home system property not specified. Disabling /prof endpoint.
+2026-03-02 23:32:24,789 INFO  [main] http.HttpServer: Jetty bound to port 9095
+2026-03-02 23:32:24,790 INFO  [main] server.Server: jetty-9.3.28.v20191105, build timestamp: 2019-11-05T18:00:51Z, git hash: d7dd68d6e9d8ff06a0130e46886c2db5d70784c1
+2026-03-02 23:32:24,823 INFO  [main] http.SecurityHeadersFilter: Added security headers filter
+2026-03-02 23:32:24,827 INFO  [main] handler.ContextHandler: Started o.e.j.s.ServletContextHandler@6e9a5ed8{/logs,file:///usr/program/hbase/logs/,AVAILABLE}
+2026-03-02 23:32:24,827 INFO  [main] http.SecurityHeadersFilter: Added security headers filter
+2026-03-02 23:32:24,827 INFO  [main] handler.ContextHandler: Started o.e.j.s.ServletContextHandler@6c284af{/static,file:///usr/program/hbase/hbase-webapps/static/,AVAILABLE}
+2026-03-02 23:32:24,933 INFO  [main] webapp.StandardDescriptorProcessor: NO JSP Support for /, did not find org.eclipse.jetty.jsp.JettyJspServlet
+2026-03-02 23:32:24,942 INFO  [main] http.SecurityHeadersFilter: Added security headers filter
+2026-03-02 23:32:24,954 INFO  [main] handler.ContextHandler: Started o.e.j.w.WebAppContext@205d38da{/,file:///usr/program/hbase/hbase-webapps/thrift/,AVAILABLE}{file:/usr/program/hbase/hbase-webapps/thrift}
+2026-03-02 23:32:24,961 INFO  [main] server.AbstractConnector: Started ServerConnector@51a9ad5e{HTTP/1.1,[http/1.1]}{0.0.0.0:9095}
+2026-03-02 23:32:24,961 INFO  [main] server.Server: Started @1482ms
+
+
+
+exit
+^Cbash-5.0# exit
+exit
+meganpokal27@dsc650bigdata:~/dsc650-infra/bellevue-bigdata/hadoop-hive-spark-hbase$ client_loop: send disconnect: Broken pipe
+Megans-MacBook-Pro:~ meganpokal$ ssh-keygen
+Generating public/private ed25519 key pair.
+Enter file in which to save the key (/Users/meganpokal/.ssh/id_ed25519): 
+/Users/meganpokal/.ssh/id_ed25519 already exists.
+Overwrite (y/n)? y
+Enter passphrase (empty for no passphrase): 
+Enter same passphrase again: 
+Your identification has been saved in /Users/meganpokal/.ssh/id_ed25519
+Your public key has been saved in /Users/meganpokal/.ssh/id_ed25519.pub
+The key fingerprint is:
+SHA256:+eHJzTHQ2nHX1gEyg0pLU3wG4/Qh6e53upX59TmwRC0 meganpokal@Megans-MacBook-Pro.local
+The key's randomart image is:
++--[ED25519 256]--+
+|        o*+= ... |
+|       +o+++=   +|
+|      o =.+.o o =|
+|       o o + E + |
+|        S o = .  |
+|         = = =o  |
+|        . = ++o .|
+|         . ..o..+|
+|          .o+  oo|
++----[SHA256]-----+
+Megans-MacBook-Pro:~ meganpokal$ cat ~/.ssh/id_rsa.pub
+ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQC6t4vM48nXgTYgrdmNAsGHYjz1MmaJTu7v/E76wCY3aoB2I6QmwxS/aQZqrN/tGWH/uKYLTWS7LAyM2mWm9MTwIbOOD04FvqP6pVVA1+2iaxnK/BY5yud21GgLlIOGI3hnZKhH+3vc8TCSIekSbkXUsFT2EPS8vWsX1zoafZKr/Esf+pC2eR0MS+z0CWJ8iQvIxP8sFuQTjxILVcXDrua9rpOnDTbFbBssr3Otd5UricD/GtRdH7xi8kNjKDz8/xMBzBar1UM+1DT1ZHk63IjrxALvCoeQLKZE525Co4jSE3WfFEDGfUekbdrYGc1IoeGxPN3kW63Qk6oMHqsJgshSvZa+TyihCn1wF6mVIQPu9ioG5Eoz+3TfsjEHmcRctww2XbpyrMjcUFT/7ed31JIpYwli4kZzcPsCzMWyeW26y3pcr6u1vElx4cOFWP9cnuKIdt2WTXfa54eWlPGiP059Ss5FCB6QqZELuIrv4AqQpsoFXjWbpC1b7ZKarL8CWdB1XClXX+8bZUUxZGxE4J9INACeZ0n9BGNRSLWn3qo0wbSl5bd6NwEI+2DWN18WE1fEHiSs/aFF6hEdobklVxT9KwC8ZS8j+O/B2CsDmWDEITWkwKgch7Q3sbG9Nry0vbswHNJpVNwsXHC0Fg8ycNfBsyQNsmK3WY1/jAPCeMHSEQ== meganpokal27@dsc650bigdata
+Megans-MacBook-Pro:~ meganpokal$ ssh meganpokal27@35.236.15.189
+Welcome to Ubuntu 24.04.3 LTS (GNU/Linux 6.17.0-1008-gcp x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/pro
+
+This system has been minimized by removing packages and content that are
+not required on a system that users do not log into.
+
+To restore this content, you can run the 'unminimize' command.
+
+Expanded Security Maintenance for Applications is not enabled.
+
+47 updates can be applied immediately.
+To see these additional updates run: apt list --upgradable
+
+4 additional security updates can be applied with ESM Apps.
+Learn more about enabling ESM Apps service at https://ubuntu.com/esm
+
+Last login: Mon Mar  2 23:53:22 2026 from 174.233.226.84
+meganpokal27@dsc650bigdata:~$ ls
+dsc650-infra
+meganpokal27@dsc650bigdata:~$ cd dsc650-infra/bellevue-bigdata
+meganpokal27@dsc650bigdata:~/dsc650-infra/bellevue-bigdata$ ls
+hadoop-hive-spark-hbase  kafka  nifi  solr
+meganpokal27@dsc650bigdata:~/dsc650-infra/bellevue-bigdata$ cd hadoop-hive-spark-hbase
+meganpokal27@dsc650bigdata:~/dsc650-infra/bellevue-bigdata/hadoop-hive-spark-hbase$ docker-compose exec master bash
+bash-5.0# ls
+flink  hadoop  hbase  hive  livy  source_dir  spark  sqoop  tez  trino-server  zulu-jdk11
+bash-5.0# cd source_dir
+bash-5.0# ls
+bash-5.0# spark-submit car_price_ml.py
+SLF4J: Class path contains multiple SLF4J bindings.
+SLF4J: Found binding in [jar:file:/usr/program/spark/jars/slf4j-log4j12-1.7.30.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/usr/program/hadoop/share/hadoop/common/lib/slf4j-log4j12-1.7.25.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
+SLF4J: Actual binding is of type [org.slf4j.impl.Log4jLoggerFactory]
+0    [main] WARN  org.apache.hadoop.util.NativeCodeLoader  - Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+python: can't open file '/usr/program/source_dir/car_price_ml.py': [Errno 2] No such file or directory
+244  [shutdown-hook-0] INFO  org.apache.spark.util.ShutdownHookManager  - Shutdown hook called
+245  [shutdown-hook-0] INFO  org.apache.spark.util.ShutdownHookManager  - Deleting directory /tmp/spark-0786e98b-db53-40be-ad59-2862d87e1453
+bash-5.0# exit
+exit
+meganpokal27@dsc650bigdata:~/dsc650-infra/bellevue-bigdata/hadoop-hive-spark-hbase$ docker-compose exec master bash
+bash-5.0# start-hbase.sh
+master running as process 1229. Stop it first.
+worker1: running regionserver, logging to /usr/program/hbase/bin/../logs/hbase-root-regionserver-worker1.out
+worker2: running regionserver, logging to /usr/program/hbase/bin/../logs/hbase-root-regionserver-worker2.out
+bash-5.0# stop-hbase.sh
+stopping hbase...........
+bash-5.0# start-hbase.sh
+running master, logging to /usr/program/hbase/logs/hbase--master-master.out
+worker2: running regionserver, logging to /usr/program/hbase/bin/../logs/hbase-root-regionserver-worker2.out
+worker1: running regionserver, logging to /usr/program/hbase/bin/../logs/hbase-root-regionserver-worker1.out
+bash-5.0# hbase thrift start -threadpool
+2026-03-03 02:06:49,428 INFO  [main] thrift.ThriftServer: ***** STARTING service 'ThriftServer' *****
+2026-03-03 02:06:49,430 INFO  [main] util.VersionInfo: HBase 2.3.6
+2026-03-03 02:06:49,431 INFO  [main] util.VersionInfo: Source code repository git://7257be94c61e/home/stack/hbase-rm/output/hbase revision=7414579f2620fca6b75146c29ab2726fc4643ac9
+2026-03-03 02:06:49,431 INFO  [main] util.VersionInfo: Compiled by stack on Wed Jul 28 22:24:42 UTC 2021
+2026-03-03 02:06:49,431 INFO  [main] util.VersionInfo: From source with checksum eb11554aeb325ccaf65a9b469efe7ddcdc0bb0eec35a53f77d0c5c09eac5722007a05ef62349c7afb8005ed1abe32e772f99bb2137194641f5ce51d525aa5634
+2026-03-03 02:06:49,666 INFO  [main] thrift.ImplType: Using thrift server type threadpool
+2026-03-03 02:06:49,698 WARN  [main] util.NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+2026-03-03 02:06:50,111 INFO  [main] metrics.MetricRegistries: Loaded MetricRegistries class org.apache.hadoop.hbase.metrics.impl.MetricRegistriesImpl
+2026-03-03 02:06:50,156 INFO  [main] hbase.ChoreService: Chore ScheduledChore name=ConnectionCleaner, period=10000, unit=MILLISECONDS is enabled.
+2026-03-03 02:06:50,210 INFO  [main] thrift.ThriftServer: starting HBase ThreadPool Thrift server on /0.0.0.0:9090
+2026-03-03 02:06:50,238 INFO  [main] util.log: Logging initialized @1119ms
+2026-03-03 02:06:50,324 INFO  [main] http.HttpServer: Added global filter 'safety' (class=org.apache.hadoop.hbase.http.HttpServer$QuotingInputFilter)
+2026-03-03 02:06:50,325 INFO  [main] http.HttpServer: Added global filter 'clickjackingprevention' (class=org.apache.hadoop.hbase.http.ClickjackingPreventionFilter)
+2026-03-03 02:06:50,325 INFO  [main] http.HttpServer: Added global filter 'securityheaders' (class=org.apache.hadoop.hbase.http.SecurityHeadersFilter)
+2026-03-03 02:06:50,328 INFO  [main] http.HttpServer: Added filter static_user_filter (class=org.apache.hadoop.hbase.http.lib.StaticUserWebFilter$StaticUserFilter) to context thrift
+2026-03-03 02:06:50,328 INFO  [main] http.HttpServer: Added filter static_user_filter (class=org.apache.hadoop.hbase.http.lib.StaticUserWebFilter$StaticUserFilter) to context logs
+2026-03-03 02:06:50,328 INFO  [main] http.HttpServer: Added filter static_user_filter (class=org.apache.hadoop.hbase.http.lib.StaticUserWebFilter$StaticUserFilter) to context static
+2026-03-03 02:06:50,336 INFO  [main] http.HttpServer: ASYNC_PROFILER_HOME environment variable and async.profiler.home system property not specified. Disabling /prof endpoint.
+2026-03-03 02:06:50,375 INFO  [main] http.HttpServer: Jetty bound to port 9095
+2026-03-03 02:06:50,376 INFO  [main] server.Server: jetty-9.3.28.v20191105, build timestamp: 2019-11-05T18:00:51Z, git hash: d7dd68d6e9d8ff06a0130e46886c2db5d70784c1
+2026-03-03 02:06:50,405 INFO  [main] http.SecurityHeadersFilter: Added security headers filter
+2026-03-03 02:06:50,408 INFO  [main] handler.ContextHandler: Started o.e.j.s.ServletContextHandler@6e9a5ed8{/logs,file:///usr/program/hbase/logs/,AVAILABLE}
+2026-03-03 02:06:50,409 INFO  [main] http.SecurityHeadersFilter: Added security headers filter
+2026-03-03 02:06:50,409 INFO  [main] handler.ContextHandler: Started o.e.j.s.ServletContextHandler@6c284af{/static,file:///usr/program/hbase/hbase-webapps/static/,AVAILABLE}
+2026-03-03 02:06:50,507 INFO  [main] webapp.StandardDescriptorProcessor: NO JSP Support for /, did not find org.eclipse.jetty.jsp.JettyJspServlet
+2026-03-03 02:06:50,516 INFO  [main] http.SecurityHeadersFilter: Added security headers filter
+2026-03-03 02:06:50,525 INFO  [main] handler.ContextHandler: Started o.e.j.w.WebAppContext@205d38da{/,file:///usr/program/hbase/hbase-webapps/thrift/,AVAILABLE}{file:/usr/program/hbase/hbase-webapps/thrift}
+2026-03-03 02:06:50,532 INFO  [main] server.AbstractConnector: Started ServerConnector@51a9ad5e{HTTP/1.1,[http/1.1]}{0.0.0.0:9095}
+2026-03-03 02:06:50,532 INFO  [main] server.Server: Started @1413ms
+netstat -an | grep 9090
+2026-03-03 03:21:50,974 INFO  [ReadOnlyZKClient-zoo1:2181,zoo2:2181,zoo3:2181@0x696c3653] zookeeper.ZooKeeper: Client environment:zookeeper.version=3.5.7-f0fdd52973d373ffd9c86b81d99842dc2c7f660e, built on 02/10/2020 11:30 GMT
+2026-03-03 03:21:50,974 INFO  [ReadOnlyZKClient-zoo1:2181,zoo2:2181,zoo3:2181@0x696c3653] zookeeper.ZooKeeper: Client environment:host.name=master
+2026-03-03 03:21:50,974 INFO  [ReadOnlyZKClient-zoo1:2181,zoo2:2181,zoo3:2181@0x696c3653] zookeeper.ZooKeeper: Client environment:java.version=1.8.0_275
+2026-03-03 03:21:50,974 INFO  [ReadOnlyZKClient-zoo1:2181,zoo2:2181,zoo3:2181@0x696c3653] zookeeper.ZooKeeper: Client environment:java.vendor=IcedTea
+2026-03-03 03:21:50,974 INFO  [ReadOnlyZKClient-zoo1:2181,zoo2:2181,zoo3:2181@0x696c3653] zookeeper.ZooKeeper: Client environment:java.home=/usr/lib/jvm/java-1.8-openjdk/jre
+2026-03-03 03:21:50,974 INFO  [ReadOnlyZKClient-zoo1:2181,zoo2:2181,zoo3:2181@0x696c3653] zookeeper.ZooKeeper: ttp-2.7.5.jar:/usr/program/hbase/lib/okio-1.6.0.jar:/usr/program/hbase/lib/osgi-resource-locator-1.0.1.jar:/usr/program/hbase/lib/paranamer-2.3.jar:/usr/program/hbase/lib/protobuf-java-2.5.0.jar:/usr/program/hbase/lib/snappy-java-1.0.5.jar:/usr/program/hbase/lib/spymemcached-2.12.2.jar:/usr/program/hbase/lib/stax2-api-3.1.4.jar:/usr/program/hbase/lib/validation-api-1.1.0.Final.jar:/usr/program/hbase/lib/woodstox-core-5.0.3.jar:/usr/program/hbase/lib/xmlenc-0.52.jar:/usr/program/hbase/lib/zookeeper-3.5.7.jar:/usr/program/hbase/lib/zookeeper-jute-3.5.7.jar:/usr/program/hbase/lib/client-facing-thirdparty/audience-annotations-0.5.0.jar:/usr/program/hbase/lib/client-facing-thirdparty/commons-logging-1.2.jar:/usr/program/hbase/lib/client-facing-thirdparty/htrace-core4-4.2.0-incubating.jar:/usr/program/hbase/lib/client-facing-thirdparty/log4j-1.2.17.jar:/usr/program/hbase/lib/client-facing-thirdparty/slf4j-api-1.7.30.jar:/usr/program/hbase/lib/client-facing-thirdparty/slf4j-log4j12-1.7.30.jar
+2026-03-03 03:21:50,974 INFO  [ReadOnlyZKClient-zoo1:2181,zoo2:2181,zoo3:2181@0x696c3653] zookeeper.ZooKeeper: Client environment:java.library.path=/usr/lib/jvm/java-1.8-openjdk/jre/lib/amd64/server:/usr/lib/jvm/java-1.8-openjdk/jre/lib/amd64:/usr/lib/jvm/java-1.8-openjdk/jre/../lib/amd64:/usr/program/hadoop/lib/native::/usr/java/packages/lib/amd64:/usr/lib64:/lib64:/lib:/usr/lib
+2026-03-03 03:21:50,975 INFO  [ReadOnlyZKClient-zoo1:2181,zoo2:2181,zoo3:2181@0x696c3653] zookeeper.ZooKeeper: Client environment:java.io.tmpdir=/tmp
+2026-03-03 03:21:50,975 INFO  [ReadOnlyZKClient-zoo1:2181,zoo2:2181,zoo3:2181@0x696c3653] zookeeper.ZooKeeper: Client environment:java.compiler=<NA>
+2026-03-03 03:21:50,975 INFO  [ReadOnlyZKClient-zoo1:2181,zoo2:2181,zoo3:2181@0x696c3653] zookeeper.ZooKeeper: Client environment:os.name=Linux
+2026-03-03 03:21:50,975 INFO  [ReadOnlyZKClient-zoo1:2181,zoo2:2181,zoo3:2181@0x696c3653] zookeeper.ZooKeeper: Client environment:os.arch=amd64
+2026-03-03 03:21:50,975 INFO  [ReadOnlyZKClient-zoo1:2181,zoo2:2181,zoo3:2181@0x696c3653] zookeeper.ZooKeeper: Client environment:os.version=6.17.0-1008-gcp
+2026-03-03 03:21:50,975 INFO  [ReadOnlyZKClient-zoo1:2181,zoo2:2181,zoo3:2181@0x696c3653] zookeeper.ZooKeeper: Client environment:user.name=root
+2026-03-03 03:21:50,975 INFO  [ReadOnlyZKClient-zoo1:2181,zoo2:2181,zoo3:2181@0x696c3653] zookeeper.ZooKeeper: Client environment:user.home=/root
+2026-03-03 03:21:50,975 INFO  [ReadOnlyZKClient-zoo1:2181,zoo2:2181,zoo3:2181@0x696c3653] zookeeper.ZooKeeper: Client environment:user.dir=/usr/program
+2026-03-03 03:21:50,975 INFO  [ReadOnlyZKClient-zoo1:2181,zoo2:2181,zoo3:2181@0x696c3653] zookeeper.ZooKeeper: Client environment:os.memory.free=229MB
+2026-03-03 03:21:50,975 INFO  [ReadOnlyZKClient-zoo1:2181,zoo2:2181,zoo3:2181@0x696c3653] zookeeper.ZooKeeper: Client environment:os.memory.max=3931MB
+2026-03-03 03:21:50,975 INFO  [ReadOnlyZKClient-zoo1:2181,zoo2:2181,zoo3:2181@0x696c3653] zookeeper.ZooKeeper: Client environment:os.memory.total=241MB
+2026-03-03 03:21:50,980 INFO  [ReadOnlyZKClient-zoo1:2181,zoo2:2181,zoo3:2181@0x696c3653] zookeeper.ZooKeeper: Initiating client connection, connectString=zoo1:2181,zoo2:2181,zoo3:2181 sessionTimeout=90000 watcher=org.apache.hadoop.hbase.zookeeper.ReadOnlyZKClient$$Lambda$40/1432505335@5ef5d670
+2026-03-03 03:21:50,986 INFO  [ReadOnlyZKClient-zoo1:2181,zoo2:2181,zoo3:2181@0x696c3653] common.X509Util: Setting -D jdk.tls.rejectClientInitiatedRenegotiation=true to disable client-initiated TLS renegotiation
+2026-03-03 03:21:50,992 INFO  [ReadOnlyZKClient-zoo1:2181,zoo2:2181,zoo3:2181@0x696c3653] zookeeper.ClientCnxnSocket: jute.maxbuffer value is 4194304 Bytes
+2026-03-03 03:21:51,013 INFO  [ReadOnlyZKClient-zoo1:2181,zoo2:2181,zoo3:2181@0x696c3653] zookeeper.ClientCnxn: zookeeper.request.timeout value is 0. feature enabled=
+2026-03-03 03:21:51,031 INFO  [ReadOnlyZKClient-zoo1:2181,zoo2:2181,zoo3:2181@0x696c3653-SendThread(zoo1:2181)] zookeeper.ClientCnxn: Opening socket connection to server zoo1/172.28.1.11:2181. Will not attempt to authenticate using SASL (unknown error)
+2026-03-03 03:21:51,037 INFO  [ReadOnlyZKClient-zoo1:2181,zoo2:2181,zoo3:2181@0x696c3653-SendThread(zoo1:2181)] zookeeper.ClientCnxn: Socket connection established, initiating session, client: /172.28.1.1:38724, server: zoo1/172.28.1.11:2181
+2026-03-03 03:21:51,048 INFO  [ReadOnlyZKClient-zoo1:2181,zoo2:2181,zoo3:2181@0x696c3653-SendThread(zoo1:2181)] zookeeper.ClientCnxn: Session establishment complete on server zoo1/172.28.1.11:2181, sessionid = 0x10000005b850007, negotiated timeout = 40000
+2026-03-03 03:22:51,467 INFO  [ReadOnlyZKClient-zoo1:2181,zoo2:2181,zoo3:2181@0x696c3653] zookeeper.ZooKeeper: Session: 0x10000005b850007 closed
+2026-03-03 03:22:51,467 INFO  [ReadOnlyZKClient-zoo1:2181,zoo2:2181,zoo3:2181@0x696c3653-EventThread] zookeeper.ClientCnxn: EventThread shut down for session: 0x10000005b850007
+exit
+exit
+^C2026-03-03 03:37:51,872 INFO  [main] thrift.TBoundedThreadPoolServer: Waiting for up to 60000 ms to finish processing pending requests
+2026-03-03 03:37:51,873 INFO  [main] thrift.TBoundedThreadPoolServer: Interrupting all worker threads and waiting for 5000 ms longer
+bash-5.0# exit
+exit
+meganpokal27@dsc650bigdata:~/dsc650-infra/bellevue-bigdata/hadoop-hive-spark-hbase$ exit
+logout
+Connection to 35.236.15.189 closed.
+Megans-MacBook-Pro:~ meganpokal$ 
