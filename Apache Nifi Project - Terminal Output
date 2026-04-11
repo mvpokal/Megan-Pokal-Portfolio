@@ -1,0 +1,177 @@
+Last login: Tue Feb 10 15:22:18 on ttys001
+
+The default interactive shell is now zsh.
+To update your account to use zsh, please run `chsh -s /bin/zsh`.
+For more details, please visit https://support.apple.com/kb/HT208050.
+Megans-MBP:~ meganpokal$ ssh-keygen
+Generating public/private ed25519 key pair.
+Enter file in which to save the key (/Users/meganpokal/.ssh/id_ed25519): 
+/Users/meganpokal/.ssh/id_ed25519 already exists.
+Overwrite (y/n)? y
+Enter passphrase (empty for no passphrase): 
+Enter same passphrase again: 
+Your identification has been saved in /Users/meganpokal/.ssh/id_ed25519
+Your public key has been saved in /Users/meganpokal/.ssh/id_ed25519.pub
+The key fingerprint is:
+SHA256:XhaWSNooMDbeUYJu0ThzizmsjlWsocb3cNqRQmRIWzs meganpokal@Megans-MBP.attlocal.net
+The key's randomart image is:
++--[ED25519 256]--+
+|..*=o.. .        |
+| +OB+o = . .     |
+| ++Eo.o o +      |
+|  O.=.   . .     |
+|.+.=  . S o      |
+|ooo+ + . o       |
+|+.. B . .        |
+|.. . o           |
+|                 |
++----[SHA256]-----+
+Megans-MBP:~ meganpokal$ cat ~/.ssh/id_rsa.pub
+ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQC6t4vM48nXgTYgrdmNAsGHYjz1MmaJTu7v/E76wCY3aoB2I6QmwxS/aQZqrN/tGWH/uKYLTWS7LAyM2mWm9MTwIbOOD04FvqP6pVVA1+2iaxnK/BY5yud21GgLlIOGI3hnZKhH+3vc8TCSIekSbkXUsFT2EPS8vWsX1zoafZKr/Esf+pC2eR0MS+z0CWJ8iQvIxP8sFuQTjxILVcXDrua9rpOnDTbFbBssr3Otd5UricD/GtRdH7xi8kNjKDz8/xMBzBar1UM+1DT1ZHk63IjrxALvCoeQLKZE525Co4jSE3WfFEDGfUekbdrYGc1IoeGxPN3kW63Qk6oMHqsJgshSvZa+TyihCn1wF6mVIQPu9ioG5Eoz+3TfsjEHmcRctww2XbpyrMjcUFT/7ed31JIpYwli4kZzcPsCzMWyeW26y3pcr6u1vElx4cOFWP9cnuKIdt2WTXfa54eWlPGiP059Ss5FCB6QqZELuIrv4AqQpsoFXjWbpC1b7ZKarL8CWdB1XClXX+8bZUUxZGxE4J9INACeZ0n9BGNRSLWn3qo0wbSl5bd6NwEI+2DWN18WE1fEHiSs/aFF6hEdobklVxT9KwC8ZS8j+O/B2CsDmWDEITWkwKgch7Q3sbG9Nry0vbswHNJpVNwsXHC0Fg8ycNfBsyQNsmK3WY1/jAPCeMHSEQ== meganpokal27@dsc650bigdata
+Megans-MBP:~ meganpokal$ ssh meganpokal27@35.236.15.189
+Welcome to Ubuntu 24.04.3 LTS (GNU/Linux 6.14.0-1020-gcp x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/pro
+
+This system has been minimized by removing packages and content that are
+not required on a system that users do not log into.
+
+To restore this content, you can run the 'unminimize' command.
+
+Expanded Security Maintenance for Applications is not enabled.
+
+55 updates can be applied immediately.
+To see these additional updates run: apt list --upgradable
+
+4 additional security updates can be applied with ESM Apps.
+Learn more about enabling ESM Apps service at https://ubuntu.com/esm
+
+Last login: Tue Feb 10 23:24:12 2026 from 76.227.225.11
+meganpokal27@dsc650bigdata:~$ cd dsc650-infra/bellevue-bigdata/nifi
+meganpokal27@dsc650bigdata:~/dsc650-infra/bellevue-bigdata/nifi$ /bin/bash nifi-*/bin/nifi.sh start
+nifi.sh: JAVA_HOME not set; results may vary
+
+Java home: 
+NiFi home: /home/meganpokal27/dsc650-infra/bellevue-bigdata/nifi/nifi-1.25.0
+
+Bootstrap Config File: /home/meganpokal27/dsc650-infra/bellevue-bigdata/nifi/nifi-1.25.0/conf/bootstrap.conf
+
+
+meganpokal27@dsc650bigdata:~/dsc650-infra/bellevue-bigdata/nifi$ /bin/bash nifi-*/bin/nifi.sh status
+nifi.sh: JAVA_HOME not set; results may vary
+
+Java home: 
+NiFi home: /home/meganpokal27/dsc650-infra/bellevue-bigdata/nifi/nifi-1.25.0
+
+Bootstrap Config File: /home/meganpokal27/dsc650-infra/bellevue-bigdata/nifi/nifi-1.25.0/conf/bootstrap.conf
+
+2026-02-16 20:17:04,831 INFO [main] org.apache.nifi.bootstrap.Command Apache NiFi is currently running, listening to Bootstrap on port 44517, PID=11422
+
+meganpokal27@dsc650bigdata:~/dsc650-infra/bellevue-bigdata/nifi$ cd ..
+meganpokal27@dsc650bigdata:~/dsc650-infra/bellevue-bigdata$ cd solr/
+meganpokal27@dsc650bigdata:~/dsc650-infra/bellevue-bigdata/solr$ ls
+docker-compose.yml
+meganpokal27@dsc650bigdata:~/dsc650-infra/bellevue-bigdata/solr$ docker ps
+CONTAINER ID   IMAGE                  COMMAND                  CREATED       STATUS       PORTS                                                                       NAMES
+fea313f11f7c   nasheb/kafka:1.0       "/__cacert_entrypoin…"   12 days ago   Up 3 hours   0.0.0.0:9092->19092/tcp, [::]:9092->19092/tcp                               kafka-kafka1-1
+0189d0e40a4e   nasheb/kafka:1.0       "/__cacert_entrypoin…"   12 days ago   Up 3 hours   0.0.0.0:9094->19092/tcp, [::]:9094->19092/tcp                               kafka-kafka3-1
+a1bce78f4c86   nasheb/kafka:1.0       "/__cacert_entrypoin…"   12 days ago   Up 3 hours   0.0.0.0:9093->19092/tcp, [::]:9093->19092/tcp                               kafka-kafka2-1
+78b76dec085b   nasheb/zookeeper:1.0   "/docker-entrypoint.…"   12 days ago   Up 3 hours   2888/tcp, 3888/tcp, 0.0.0.0:2181->2181/tcp, [::]:2181->2181/tcp, 8080/tcp   kafka-zookeeper-1
+meganpokal27@dsc650bigdata:~/dsc650-infra/bellevue-bigdata/solr$ docker compose up -d
+WARN[0000] /home/meganpokal27/dsc650-infra/bellevue-bigdata/solr/docker-compose.yml: the attribute `version` is obsolete, it will be ignored, please remove it to avoid potential confusion 
+[+] up 1/1
+ ✔ Container solr_solr_1 Recreated                                      0.3s 
+meganpokal27@dsc650bigdata:~/dsc650-infra/bellevue-bigdata/solr$ docker exec -it solr_solr_1 bash.
+Error response from daemon: No such container: solr_solr_1
+meganpokal27@dsc650bigdata:~/dsc650-infra/bellevue-bigdata/solr$ docker ps
+CONTAINER ID   IMAGE                  COMMAND                  CREATED         STATUS         PORTS                                                                       NAMES
+b5052edde3e5   solr                   "docker-entrypoint.s…"   3 minutes ago   Up 3 minutes   0.0.0.0:8983->8983/tcp, [::]:8983->8983/tcp                                 solr-solr-1
+fea313f11f7c   nasheb/kafka:1.0       "/__cacert_entrypoin…"   12 days ago     Up 3 hours     0.0.0.0:9092->19092/tcp, [::]:9092->19092/tcp                               kafka-kafka1-1
+0189d0e40a4e   nasheb/kafka:1.0       "/__cacert_entrypoin…"   12 days ago     Up 3 hours     0.0.0.0:9094->19092/tcp, [::]:9094->19092/tcp                               kafka-kafka3-1
+a1bce78f4c86   nasheb/kafka:1.0       "/__cacert_entrypoin…"   12 days ago     Up 3 hours     0.0.0.0:9093->19092/tcp, [::]:9093->19092/tcp                               kafka-kafka2-1
+78b76dec085b   nasheb/zookeeper:1.0   "/docker-entrypoint.…"   12 days ago     Up 3 hours     2888/tcp, 3888/tcp, 0.0.0.0:2181->2181/tcp, [::]:2181->2181/tcp, 8080/tcp   kafka-zookeeper-1
+meganpokal27@dsc650bigdata:~/dsc650-infra/bellevue-bigdata/solr$ cd ..
+meganpokal27@dsc650bigdata:~/dsc650-infra/bellevue-bigdata$ cd hadoop-hive-spark-hbase/
+meganpokal27@dsc650bigdata:~/dsc650-infra/bellevue-bigdata/hadoop-hive-spark-hbase$ docker compose down
+WARN[0000] /home/meganpokal27/dsc650-infra/bellevue-bigdata/hadoop-hive-spark-hbase/docker-compose.yml: the attribute `version` is obsolete, it will be ignored, please remove it to avoid potential confusion 
+meganpokal27@dsc650bigdata:~/dsc650-infra/bellevue-bigdata/hadoop-hive-spark-hbase$ docker compose down
+WARN[0000] /home/meganpokal27/dsc650-infra/bellevue-bigdata/hadoop-hive-spark-hbase/docker-compose.yml: the attribute `version` is obsolete, it will be ignored, please remove it to avoid potential confusion 
+meganpokal27@dsc650bigdata:~/dsc650-infra/bellevue-bigdata/hadoop-hive-spark-hbase$ docker ps
+CONTAINER ID   IMAGE                  COMMAND                  CREATED         STATUS         PORTS                                                                       NAMES
+b5052edde3e5   solr                   "docker-entrypoint.s…"   5 minutes ago   Up 5 minutes   0.0.0.0:8983->8983/tcp, [::]:8983->8983/tcp                                 solr-solr-1
+fea313f11f7c   nasheb/kafka:1.0       "/__cacert_entrypoin…"   12 days ago     Up 3 hours     0.0.0.0:9092->19092/tcp, [::]:9092->19092/tcp                               kafka-kafka1-1
+0189d0e40a4e   nasheb/kafka:1.0       "/__cacert_entrypoin…"   12 days ago     Up 3 hours     0.0.0.0:9094->19092/tcp, [::]:9094->19092/tcp                               kafka-kafka3-1
+a1bce78f4c86   nasheb/kafka:1.0       "/__cacert_entrypoin…"   12 days ago     Up 3 hours     0.0.0.0:9093->19092/tcp, [::]:9093->19092/tcp                               kafka-kafka2-1
+78b76dec085b   nasheb/zookeeper:1.0   "/docker-entrypoint.…"   12 days ago     Up 3 hours     2888/tcp, 3888/tcp, 0.0.0.0:2181->2181/tcp, [::]:2181->2181/tcp, 8080/tcp   kafka-zookeeper-1
+meganpokal27@dsc650bigdata:~/dsc650-infra/bellevue-bigdata/hadoop-hive-spark-hbase$ cd ..
+meganpokal27@dsc650bigdata:~/dsc650-infra/bellevue-bigdata$ ls
+hadoop-hive-spark-hbase  kafka  nifi  solr
+meganpokal27@dsc650bigdata:~/dsc650-infra/bellevue-bigdata$ docker ps
+CONTAINER ID   IMAGE                  COMMAND                  CREATED         STATUS         PORTS                                                                       NAMES
+b5052edde3e5   solr                   "docker-entrypoint.s…"   6 minutes ago   Up 6 minutes   0.0.0.0:8983->8983/tcp, [::]:8983->8983/tcp                                 solr-solr-1
+fea313f11f7c   nasheb/kafka:1.0       "/__cacert_entrypoin…"   12 days ago     Up 3 hours     0.0.0.0:9092->19092/tcp, [::]:9092->19092/tcp                               kafka-kafka1-1
+0189d0e40a4e   nasheb/kafka:1.0       "/__cacert_entrypoin…"   12 days ago     Up 3 hours     0.0.0.0:9094->19092/tcp, [::]:9094->19092/tcp                               kafka-kafka3-1
+a1bce78f4c86   nasheb/kafka:1.0       "/__cacert_entrypoin…"   12 days ago     Up 3 hours     0.0.0.0:9093->19092/tcp, [::]:9093->19092/tcp                               kafka-kafka2-1
+78b76dec085b   nasheb/zookeeper:1.0   "/docker-entrypoint.…"   12 days ago     Up 3 hours     2888/tcp, 3888/tcp, 0.0.0.0:2181->2181/tcp, [::]:2181->2181/tcp, 8080/tcp   kafka-zookeeper-1
+meganpokal27@dsc650bigdata:~/dsc650-infra/bellevue-bigdata$ cd solr/
+meganpokal27@dsc650bigdata:~/dsc650-infra/bellevue-bigdata/solr$ ls
+docker-compose.yml
+meganpokal27@dsc650bigdata:~/dsc650-infra/bellevue-bigdata/solr$ docker compose down
+WARN[0000] /home/meganpokal27/dsc650-infra/bellevue-bigdata/solr/docker-compose.yml: the attribute `version` is obsolete, it will be ignored, please remove it to avoid potential confusion 
+[+] down 2/2
+ ✔ Container solr-solr-1 Removed                                        1.7s 
+ ✔ Network solr_default  Removed                                        0.1s 
+meganpokal27@dsc650bigdata:~/dsc650-infra/bellevue-bigdata/solr$ docker compose up -d
+WARN[0000] /home/meganpokal27/dsc650-infra/bellevue-bigdata/solr/docker-compose.yml: the attribute `version` is obsolete, it will be ignored, please remove it to avoid potential confusion 
+[+] up 2/2
+ ✔ Network solr_default  Created                                        0.0s 
+ ✔ Container solr-solr-1 Created                                        0.1s 
+meganpokal27@dsc650bigdata:~/dsc650-infra/bellevue-bigdata/solr$ docker ps
+CONTAINER ID   IMAGE                  COMMAND                  CREATED          STATUS          PORTS                                                                       NAMES
+ffbfdda82153   solr                   "docker-entrypoint.s…"   12 seconds ago   Up 11 seconds   0.0.0.0:8983->8983/tcp, [::]:8983->8983/tcp                                 solr-solr-1
+fea313f11f7c   nasheb/kafka:1.0       "/__cacert_entrypoin…"   12 days ago      Up 3 hours      0.0.0.0:9092->19092/tcp, [::]:9092->19092/tcp                               kafka-kafka1-1
+0189d0e40a4e   nasheb/kafka:1.0       "/__cacert_entrypoin…"   12 days ago      Up 3 hours      0.0.0.0:9094->19092/tcp, [::]:9094->19092/tcp                               kafka-kafka3-1
+a1bce78f4c86   nasheb/kafka:1.0       "/__cacert_entrypoin…"   12 days ago      Up 3 hours      0.0.0.0:9093->19092/tcp, [::]:9093->19092/tcp                               kafka-kafka2-1
+78b76dec085b   nasheb/zookeeper:1.0   "/docker-entrypoint.…"   12 days ago      Up 3 hours      2888/tcp, 3888/tcp, 0.0.0.0:2181->2181/tcp, [::]:2181->2181/tcp, 8080/tcp   kafka-zookeeper-1
+meganpokal27@dsc650bigdata:~/dsc650-infra/bellevue-bigdata/solr$ docker exec -it solr-solr-1 bash
+solr@ffbfdda82153:/opt/solr-9.10.0$ create -c syslog
+bash: create: command not found
+solr@ffbfdda82153:/opt/solr-9.10.0$ /opt/solr/bin/solr create -c syslog
+Neither --zk-host or --solr-url parameters provided so assuming solr url is http://localhost:8983.
+WARNING: Using _default configset. Data driven schema functionality is enabled by default, which is
+         NOT RECOMMENDED for production use.
+
+         To turn it off:
+            curl http://localhost:8983/solr/syslog/config -d '{"set-user-property": {"update.autoCreateFields":"false"}}'
+         Or:
+            bin/solr config -c syslog -s http://localhost:8983 --action set-user-property --property update.autoCreateFields --value false
+
+Created new core 'syslog'
+solr@ffbfdda82153:/opt/solr-9.10.0$ exit
+exit
+meganpokal27@dsc650bigdata:~/dsc650-infra/bellevue-bigdata/solr$ docker-compose down
+Stopping solr-solr-1 ... done
+Removing solr-solr-1 ... done
+Removing network solr_default
+meganpokal27@dsc650bigdata:~/dsc650-infra/bellevue-bigdata/solr$ cd ..
+meganpokal27@dsc650bigdata:~/dsc650-infra/bellevue-bigdata$ cd nifi/
+meganpokal27@dsc650bigdata:~/dsc650-infra/bellevue-bigdata/nifi$ ls
+hadoopconf  nifi-1.25.0  nifi-1.25.0-bin.zip  templates
+meganpokal27@dsc650bigdata:~/dsc650-infra/bellevue-bigdata/nifi$ /bin/bash nifi-*/bin/nifi.sh stop
+nifi.sh: JAVA_HOME not set; results may vary
+
+Java home: 
+NiFi home: /home/meganpokal27/dsc650-infra/bellevue-bigdata/nifi/nifi-1.25.0
+
+Bootstrap Config File: /home/meganpokal27/dsc650-infra/bellevue-bigdata/nifi/nifi-1.25.0/conf/bootstrap.conf
+
+2026-02-17 00:24:32,716 INFO [main] org.apache.nifi.bootstrap.Command Apache NiFi has accepted the Shutdown Command and is shutting down now
+2026-02-17 00:24:32,742 INFO [main] org.apache.nifi.bootstrap.Command NiFi PID [11422] shutdown in progress...
+2026-02-17 00:24:34,754 INFO [main] org.apache.nifi.bootstrap.Command NiFi PID [11422] shutdown completed
+
+meganpokal27@dsc650bigdata:~/dsc650-infra/bellevue-bigdata/nifi$ exit
+logout
+Connection to 35.236.15.189 closed.
+Megans-MBP:~ meganpokal$ 
