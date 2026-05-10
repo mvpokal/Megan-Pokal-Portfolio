@@ -1,7 +1,6 @@
 ---
 layout: page
 title: Megan Pokal Portfolio
-show_sidebar: false
 ---
 
 # Welcome to My Data Science Portfolio
