@@ -92,4 +92,6 @@ social:
   tiktok: https://www.tiktok.com/
   x: https://www.x.com/
   youtube: https://www.youtube.com/
-  
+
+  # Add
+  remote_theme: chrisrhymes/bulma-clean-theme@v0.14.0
