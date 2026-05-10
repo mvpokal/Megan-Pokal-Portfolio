@@ -6,7 +6,16 @@ II recently earned my Master of Science in Data Science from Bellevue University
 I enjoy using data to solve problems, identify trends, and create meaningful insights through both technical and creative approaches.
 
 #  Skills
-Python | SQL | Tableau | Power BI | Machine Learning | Hadoop | Spark | Pandas | Data Visualization | Exploratory Data Analysis (EDA)
+* Python
+* SQL
+* Tableau
+* Power BI
+* Machine Learning
+* Hadoop
+* Spark
+* Pandas
+* Data Visualization
+* Exploratory Data Analysis (EDA)
 
 # Projects
 
@@ -33,7 +42,7 @@ Developed big data workflows using distributed systems and data processing tools
 
 # Contact
 
-GitHub: [GitHub Profile](https://mvpokal.github.io/Megan-s-Portfolio/)
+GitHub: https://github.com/mvpokal/Megan-Pokal-Portfolio
 
 LinkedIn: www.linkedin.com/in/megan-pokal
 
