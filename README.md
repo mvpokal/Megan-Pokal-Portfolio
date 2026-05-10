@@ -1,16 +1,16 @@
 # Megan Pokal – Data Analyst Portfolio
 
-## About Me
+# About Me
 II recently earned my Master of Science in Data Science from Bellevue University. This portfolio showcases projects completed throughout my graduate program, along with additional independent projects that reflect my interests in analytics, machine learning, visualization, and big data technologies.
 
 I enjoy using data to solve problems, identify trends, and create meaningful insights through both technical and creative approaches.
 
-## Skills
+#  Skills
 Python | SQL | Tableau | Power BI | Machine Learning | Hadoop | Spark | Pandas | Data Visualization | Exploratory Data Analysis (EDA)
 
-## Projects
+# Projects
 
-# Childcare Affordability Analysis
+## Childcare Affordability Analysis
 
 Analyzed childcare cost trends and affordability across different populations using Python and data visualization techniques.
 
