@@ -8,16 +8,24 @@ show_sidebar: true
 
 ## Childcare Affordability Analysis
 Python, Pandas, Seaborn  
-Analyzed childcare cost trends and affordability patterns.
+Analyzed childcare affordability trends across populations.
+
+---
 
 ## TSA Complaints Analysis
-Explored TSA complaint data to identify trends and patterns.
+Explored TSA complaint data to identify patterns and trends.
+
+---
 
 ## Retail Sales Time Series
-Time series analysis of retail performance and seasonality.
+Time series forecasting and seasonal trend analysis.
+
+---
 
 ## Lottery Data Analysis
-Statistical analysis of number frequency patterns.
+Statistical analysis of number frequency distributions.
+
+---
 
 ## Big Data Processing
-Hadoop, Spark, NiFi, Solr, HBase distributed data workflows.
+Hadoop, Spark, NiFi, Solr, HBase distributed data pipelines.
