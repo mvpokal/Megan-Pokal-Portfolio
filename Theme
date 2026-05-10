@@ -1,0 +1,5 @@
+# Website theme:
+
+_config.yml
+
+remote_theme: chrisrhymes/bulma-clean-theme@v0.14.0
