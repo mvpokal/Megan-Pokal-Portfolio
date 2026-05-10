@@ -1,20 +1,21 @@
 ---
 layout: page
-title: Megan Pokal Portfolio
+title: Home
+hero_image: false
 ---
 
-# Welcome to My Data Science Portfolio
+# Megan Pokal – Data Science Portfolio
 
-This site showcases my projects in data science, machine learning, and big data analytics.
+Welcome to my portfolio showcasing data science, machine learning, and big data analytics.
 
 ## About Me
-I am a Data Science graduate with experience in Python, SQL, Tableau, Power BI, and distributed computing systems.
+Data Science graduate with experience in Python, SQL, Tableau, Power BI, and distributed systems.
 
 ## Featured Projects
 - Childcare Affordability Analysis  
 - TSA Complaints Analysis  
 - Retail Sales Time Series  
 - Lottery Data Analysis  
-- Big Data Processing (Hadoop, Spark, NiFi, Solr)
+- Big Data Processing  
 
-Navigate through the site to explore each project in detail.
+Use the navigation menu to explore full project details.
