@@ -7,25 +7,29 @@ show_sidebar: true
 # Projects
 
 ## Childcare Affordability Analysis
-Python, Pandas, Seaborn  
-Analyzed childcare affordability trends across populations.
+Python | Pandas | Seaborn  
+Analyzed childcare cost trends and affordability across populations.
 
 ---
 
 ## TSA Complaints Analysis
-Explored TSA complaint data to identify patterns and trends.
+Python | Data Visualization  
+Explored TSA complaint data to identify trends and traveler concerns.
 
 ---
 
 ## Retail Sales Time Series
-Time series forecasting and seasonal trend analysis.
+Python | Time Series Analysis  
+Analyzed seasonal trends and sales forecasting patterns.
 
 ---
 
 ## Lottery Data Analysis
-Statistical analysis of number frequency distributions.
+Python | Statistics  
+Examined number frequency distributions and randomness patterns.
 
 ---
 
 ## Big Data Processing
-Hadoop, Spark, NiFi, Solr, HBase distributed data pipelines.
+Hadoop | Spark | NiFi | Solr | HBase  
+Built distributed data pipelines for large-scale data processing.
