@@ -1,5 +1,15 @@
 # Website theme:
 
+## Add file
 _config.yml
 
+## Add the theme
 remote_theme: chrisrhymes/bulma-clean-theme@v0.14.0
+
+## Add Gemfile
+gem "github-pages", group: :jekyll_plugins
+gem "bulma-clean-theme"
+
+## Install
+bundle install
+bundle exec jekyll serve
