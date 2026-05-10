@@ -93,5 +93,14 @@ social:
   x: https://www.x.com/
   youtube: https://www.youtube.com/
 
-  # Add
+  # Add theme
   remote_theme: chrisrhymes/bulma-clean-theme@v0.14.0
+
+  # Add navbar
+  remote_theme: chrisrhymes/bulma-clean-theme@v0.14.0
+
+navbar:
+  - name: Home
+    link: /
+  - name: Projects
+    link: /projects/
