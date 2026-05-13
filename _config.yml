@@ -1,18 +1,24 @@
 lang: en
 
 title: "Megan Pokal - Data Science Portfolio"
-description: "Data Science, Machine Learning, and Big Data Projects"
+tagline: Megan Pokal Data Analyst
+description: >
+Data Science, Machine Learning, and Big Data Projects.
 
 baseurl: "/Megan-Pokal-Portfolio"
 url: "https://mvpokal.github.io"
 
 remote_theme: chrisrhymes/bulma-clean-theme@v0.14.0
 
+force_theme: light
+
 plugins:
-  - jekyll-remote-theme
+  - jekyll-sitemap
+  - jekyll-paginate
   - jekyll-feed
   - jekyll-seo-tag
-  - jekyll-sitemap
+  - kramdown-parser-gfm
+  - jekyll-redirect-from
 
 navbar:
   - name: Home
@@ -26,6 +32,16 @@ navbar:
 
   - name: Contact
     link: "{{ site.baseurl }}/contact/"
+
+
+sass:
+  style: compressed
+  source_dir: _sass
+  # load_paths: 
+    # - node_modules
+
+#google_analytics: UA-code-here
+cookie_policy: /cookie-policy/
 
 markdown: kramdown
 highlighter: rouge
