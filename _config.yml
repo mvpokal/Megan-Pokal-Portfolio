@@ -16,16 +16,16 @@ plugins:
 
 navbar:
   - name: Home
-    link: /
+    link: "{{ site.baseurl }}/"
 
   - name: Projects
-    link: /projects/
+    link: "{{ site.baseurl }}/projects/"
 
   - name: TSA Project
-    link: /tsa-complaints/
+    link: "{{ site.baseurl }}/tsa-complaints/"
 
   - name: Contact
-    link: /contact/
+    link: "{{ site.baseurl }}/contact/"
 
 markdown: kramdown
 highlighter: rouge
