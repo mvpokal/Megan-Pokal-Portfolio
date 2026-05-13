@@ -21,5 +21,8 @@ navbar:
   - name: Projects
     link: /projects/
 
+  - name: Contact
+    link: /contact/
+
 markdown: kramdown
 highlighter: rouge
