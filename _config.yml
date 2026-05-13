@@ -22,16 +22,16 @@ plugins:
 
 navbar:
   - name: Home
-    link: "{{ site.baseurl }}/"
+    link: /
 
   - name: Projects
-    link: "{{ site.baseurl }}/projects/"
+    link: /projects/
 
   - name: TSA Project
-    link: "{{ site.baseurl }}/tsa-complaints/"
+    link: /tsa-complaints/
 
   - name: Contact
-    link: "{{ site.baseurl }}/contact/"
+    link: /contact/
 
 
 sass:
