@@ -2,8 +2,7 @@ lang: en
 
 title: "Megan Pokal - Data Science Portfolio"
 tagline: Megan Pokal Data Analyst
-description: >
-Data Science, Machine Learning, and Big Data Projects.
+description: "Data Science, Machine Learning, and Big Data Projects."
 
 baseurl: "/Megan-Pokal-Portfolio"
 url: "https://mvpokal.github.io"
@@ -33,15 +32,9 @@ navbar:
   - name: Contact
     link: /contact/
 
-
 sass:
   style: compressed
   source_dir: _sass
-  # load_paths: 
-    # - node_modules
-
-#google_analytics: UA-code-here
-cookie_policy: /cookie-policy/
 
 markdown: kramdown
 highlighter: rouge
