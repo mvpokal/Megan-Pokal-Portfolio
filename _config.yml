@@ -1,7 +1,10 @@
-remote_theme: chrisrhymes/bulma-clean-theme@v0.14.0
-
 title: Megan Pokal – Data Science Portfolio
 description: Data Science, Machine Learning, and Big Data Projects
+
+remote_theme: chrisrhymes/bulma-clean-theme@v0.14.0
+
+plugins:
+  - jekyll-remote-theme
 
 navbar:
   - name: Home
