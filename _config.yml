@@ -45,7 +45,3 @@ cookie_policy: /cookie-policy/
 
 markdown: kramdown
 highlighter: rouge
-
-git add .
-git commit -m "Fix navbar links"
-git push
