@@ -16,11 +16,11 @@ export const Home: FC = () => {
       id="home"
       className="relative flex items-center justify-center h-screen bg-cover bg-center"
       style={{
-        backgroundImage: "url('/hero-bg.jpg')" // optional if you add image
+        backgroundImage: "url('/hero-bg.jpg')" // only works if file exists in /public
       }}
     >
       {/* Overlay */}
-      <div className="absolute inset-0 bg-black opacity-70" />
+      <div className="absolute inset-0 bg-black/70" />
 
       <div className="relative z-10 text-center text-white max-w-4xl mx-auto px-6">
 
@@ -34,9 +34,8 @@ export const Home: FC = () => {
 
         <p className="text-lg font-light mb-12 text-gray-300 max-w-2xl mx-auto leading-relaxed">
           Master of Science in Data Science graduate with experience in
-          Python, SQL, machine learning, data visualization,
-          and big data technologies. Passionate about turning
-          data into actionable insights and solving real-world business problems.
+          Python, SQL, machine learning, data visualization, and big data technologies.
+          Passionate about turning data into actionable insights and solving real-world business problems.
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
