@@ -1,43 +1,93 @@
-# Megan Pokal – Data Analyst Portfolio
+# Megan Pokal | Data Analyst & Data Science Portfolio
 
-# About Me
-I recently earned my Master of Science in Data Science from Bellevue University. This portfolio showcases projects completed throughout my graduate program, along with additional independent projects that reflect my interests in analytics, machine learning, visualization, and big data technologies.
+Welcome to my portfolio repository. This site showcases graduate and independent projects focused on data analysis, machine learning, visualization, and big data technologies.
 
-I enjoy using data to solve problems, identify trends, and create meaningful insights through both technical and creative approaches.
+---
 
-#  Skills
-* Python
-* SQL
-* Tableau
-* Power BI
-* Machine Learning
-* Hadoop
-* Spark
-* Pandas
-* Data Visualization
-* Exploratory Data Analysis (EDA)
+## About Me
 
-# Projects
+I recently earned my Master of Science in Data Science from Bellevue University. My work combines analytical thinking with practical problem solving to transform data into meaningful insights.
 
-## Childcare Affordability Analysis
+Areas of interest include:
 
-Analyzed childcare cost trends and affordability across different populations using Python and data visualization techniques.
+- Data Analytics
+- Machine Learning
+- Data Visualization
+- Big Data Technologies
+- Business Intelligence
+- Predictive Analytics
 
-## TSA Complaints Analysis
+---
 
-Explored TSA complaint data to identify common traveler concerns, complaint patterns, and trends over time.
+## Technical Skills
 
-## Retail Sales Time Series
+### Programming & Databases
+- Python
+- SQL
+- Pandas
 
-Performed time series analysis on retail sales data to identify seasonality, growth patterns, and forecasting insights.
+### Analytics & Visualization
+- Tableau
+- Power BI
+- Data Visualization
+- Exploratory Data Analysis (EDA)
 
-## Lottery Data Analysis
+### Machine Learning & Big Data
+- Machine Learning
+- Hadoop
+- Spark
 
-Examined historical lottery data to analyze number frequency distributions and statistical patterns.
+---
 
-## Big Data Processing (Hadoop, NiFi, Solr, HBase, Spark)
+## Featured Projects
 
-Developed big data workflows using distributed systems and data processing tools including Hadoop, Apache NiFi, Solr, HBase, and Spark.
+### Childcare Affordability Analysis
+**Tools:** Python, Pandas, Seaborn  
+
+Analyzed childcare cost trends and affordability across different populations using statistical analysis and visualization techniques.
+
+---
+
+### TSA Complaints Analysis
+**Tools:** Python, Data Visualization  
+
+Explored TSA complaint data to identify traveler concerns, complaint patterns, and trends across datasets.
+
+---
+
+### Retail Sales Time Series
+**Tools:** Python, Time Series Analysis  
+
+Performed time series analysis to identify seasonality, growth patterns, and forecasting insights.
+
+---
+
+### Lottery Data Analysis
+**Tools:** Python, Statistics  
+
+Examined historical lottery datasets to analyze number frequency distributions and statistical patterns.
+
+---
+
+### Big Data Processing
+**Tools:** Hadoop, Spark, Apache NiFi, Solr, HBase  
+
+Developed distributed workflows and data processing pipelines using large-scale data technologies.
+
+---
+
+## Repository Structure
+
+```text
+├── Childcare-Affordability-Analysis
+├── TSA-Complaints-Analysis
+├── Retail-Sales-Time-Series
+├── Lottery-Data-Analysis
+├── Big-Data-Processing
+├── index.md
+├── projects.md
+├── contact.md
+└── README.md
 
 
 # Contact
