@@ -1,6 +1,6 @@
 # Megan Pokal – Data Science Portfolio
 
-## 👩‍💻 About Me
+## About Me
 
 Master of Science in Data Science graduate with experience in:
 
@@ -13,30 +13,30 @@ I enjoy turning raw data into insights, building predictive models, and developi
 
 ---
 
-## 🚀 Live Portfolio
+## Live Portfolio
 
-🔗 GitHub Pages Site:  
+GitHub Pages Site:  
 https://mvpokal.github.io/Megan-Pokal-Portfolio/
 
 ---
 
-## 📊 Featured Projects
+## Featured Projects
 
-### 🧠 Machine Learning & Analytics
+### Machine Learning & Analytics
 - Credit Card Fraud Detection – classification models for imbalanced datasets  
 - Retail Sales Time Series – forecasting seasonal sales trends  
 - Lottery Data Analysis – statistical distribution analysis  
 
-### 💳 Business & Risk Analytics
+### Business & Risk Analytics
 - Childcare Affordability Analysis – cost trends across populations  
 - TSA Complaints Analysis – airline complaint pattern analysis  
 
-### ⚙️ Big Data Systems
+### Big Data Systems
 - Big Data Processing Pipeline – Hadoop, Spark, NiFi, HBase, Solr integration  
 
 ---
 
-## 🛠️ Technical Skills
+## Technical Skills
 
 - Programming: Python, SQL  
 - Machine Learning: Scikit-learn, TensorFlow, XGBoost  
@@ -47,7 +47,7 @@ https://mvpokal.github.io/Megan-Pokal-Portfolio/
 
 ---
 
-## 📫 Contact
+## Contact
 
 - GitHub: https://github.com/mvpokal  
 - LinkedIn: https://www.linkedin.com/in/megan-pokal/  
