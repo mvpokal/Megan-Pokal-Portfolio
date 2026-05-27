@@ -1,17 +1,30 @@
 import type { FC } from 'react';
 
+const RESUME_PATH = "/Megan_Pokal_Resume.pdf";
+
 export const Home: FC = () => {
+  const scrollToContact = () => {
+    const el = document.getElementById('contact');
+
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <section
       id="home"
       className="relative flex items-center justify-center h-screen bg-cover bg-center"
+      style={{
+        backgroundImage: "url('/hero-bg.jpg')" // optional if you add image
+      }}
     >
-      {/* Background Overlay */}
-      <div className="absolute inset-0 bg-black opacity-70"></div>
+      {/* Overlay */}
+      <div className="absolute inset-0 bg-black opacity-70" />
 
       <div className="relative z-10 text-center text-white max-w-4xl mx-auto px-6">
 
-        <h1 className="text-5xl md:text-7xl font-light mb-6 tracking-wide text-white">
+        <h1 className="text-5xl md:text-7xl font-light mb-6 tracking-wide">
           Megan Pokal
         </h1>
 
@@ -23,14 +36,14 @@ export const Home: FC = () => {
           Master of Science in Data Science graduate with experience in
           Python, SQL, machine learning, data visualization,
           and big data technologies. Passionate about turning
-          data into actionable insights and solving real-world
-          business problems.
+          data into actionable insights and solving real-world business problems.
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
 
+          {/* Resume */}
           <a
-            href="/Megan_Pokal_Resume.pdf"
+            href={RESUME_PATH}
             target="_blank"
             rel="noopener noreferrer"
             className="px-8 py-4 border border-white text-white hover:bg-white hover:text-gray-900 transition-colors font-medium text-sm tracking-wide uppercase"
@@ -38,15 +51,10 @@ export const Home: FC = () => {
             View Resume
           </a>
 
+          {/* Contact */}
           <button
+            onClick={scrollToContact}
             className="px-8 py-4 bg-white text-gray-900 hover:bg-gray-100 transition-colors font-medium text-sm tracking-wide uppercase"
-            onClick={() =>
-              document
-                .getElementById('contact')
-                ?.scrollIntoView({
-                  behavior: 'smooth'
-                })
-            }
           >
             Contact Me
           </button>
