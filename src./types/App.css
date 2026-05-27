@@ -1,0 +1,41 @@
+#root {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  text-align: left;
+}
+
+/* Smooth scrolling for navigation */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Base body styling */
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  background-color: #ffffff;
+  color: #1a202c;
+}
+
+/* Remove default Vite template styles */
+.logo,
+.card,
+.read-the-docs {
+  display: none;
+}
+
+/* Utility spacing reset for sections */
+section {
+  width: 100%;
+}
+
+/* Improve link styling */
+a {
+  text-decoration: none;
+}
+
+/* Better button defaults (optional consistency) */
+button {
+  font-family: inherit;
+}
