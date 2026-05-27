@@ -4,7 +4,7 @@ import IMG from "../images/profilephoto.jpg";
 import { FaLinkedin, FaGithub, FaFileDownload } from 'react-icons/fa';
 import { SiGmail } from 'react-icons/si';
 
-// MUST be placed in /public folder for GitHub Pages
+// MUST be in /public folder
 const Resume = "/Megan_Pokal_Resume.pdf";
 
 export const About: FC = () => {
@@ -41,11 +41,12 @@ export const About: FC = () => {
 
   return (
     <section id="about" className="w-full py-12 md:py-16 bg-gray-50">
+
       <div className="container mx-auto px-6 md:px-4 max-w-6xl">
 
         <div className="flex flex-col md:flex-row md:space-x-12 space-y-8 md:space-y-0 items-center">
 
-          {/* Profile Image */}
+          {/* IMAGE */}
           <div className="md:w-1/2 flex justify-center md:justify-start">
             <img
               src={IMG}
@@ -54,7 +55,7 @@ export const About: FC = () => {
             />
           </div>
 
-          {/* Text Section */}
+          {/* TEXT */}
           <div className="md:w-1/2 flex flex-col justify-center text-left px-4 md:px-0">
 
             <h1 className="text-5xl md:text-6xl font-light mb-8 tracking-wide text-gray-800">
@@ -76,18 +77,19 @@ export const About: FC = () => {
               </span>{" "}
               with experience in{" "}
               <span className="font-medium text-gray-800">
-                Python, SQL, Tableau, Power BI, machine learning, and big data technologies
+                Python, SQL, Tableau, Power BI, machine learning, and big data
               </span>.
 
-              I enjoy transforming raw data into meaningful insights,
-              building visualizations, and solving real-world analytical problems.
+              I enjoy turning raw data into insights and building visual stories from data.
 
-              Outside of data and technology, I enjoy{" "}
+              Outside of work, I enjoy{" "}
 
               <span
                 className="font-medium text-gray-800 cursor-pointer px-2 py-1 rounded"
                 style={{
-                  backgroundColor: isPaused ? 'rgba(45,55,72,0.08)' : 'transparent'
+                  backgroundColor: isPaused
+                    ? 'rgba(45,55,72,0.08)'
+                    : 'transparent'
                 }}
                 onMouseEnter={() => setIsPaused(true)}
                 onMouseLeave={() => setIsPaused(false)}
@@ -100,23 +102,32 @@ export const About: FC = () => {
               .
             </p>
 
-            {/* Social Links */}
+            {/* LINKS */}
             <div className="flex gap-6">
 
-              <a href="https://www.linkedin.com/in/megan-pokal/"
-                 target="_blank"
-                 rel="noopener noreferrer">
+              <a
+                href="https://www.linkedin.com/in/megan-pokal/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <FaLinkedin size={26} />
               </a>
 
-              <a href="https://github.com/mvpokal"
-                 target="_blank"
-                 rel="noopener noreferrer">
+              <a
+                href="https://github.com/mvpokal"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <FaGithub size={26} />
               </a>
 
-              <a href={Resume}
-                 download="Megan_Pokal_Resume.pdf">
+              {/* FIXED: download works properly in production */}
+              <a
+                href={Resume}
+                target="_blank"
+                rel="noopener noreferrer"
+                download
+              >
                 <FaFileDownload size={26} />
               </a>
 
@@ -127,8 +138,11 @@ export const About: FC = () => {
             </div>
 
           </div>
+
         </div>
+
       </div>
+
     </section>
   );
 };
