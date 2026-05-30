@@ -14,7 +14,7 @@ export const Contact: FC = () => {
   const handleSubmit = async (event: FormEvent) => {
     event.preventDefault();
     try {
-      const response = await fetch('http://localhost:3333/api/email', {
+      const response = await fetch('http://localhost:5173/Megan-Pokal-Portfolio/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
