@@ -35,7 +35,7 @@ export const Header: FC = () => {
             onClick={() => handleNavClick('#about')}
             className={`text-xl font-light tracking-wide transition-colors ${isScrolled ? 'hover:text-gray-300' : 'hover:text-gray-700'}`}
           >
-            Joanna Sierra-Mendoza
+            Megan Pokal
           </button>
 
           <nav className="hidden md:flex space-x-8">
