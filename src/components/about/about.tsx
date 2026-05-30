@@ -1,7 +1,7 @@
 import type { FC } from 'react';
 import { useState, useEffect } from 'react';
 import IMG from "../images/profilephoto.jpg";
-import Resume from "Megan_Pokal_Resume.pdf";
+import Resume from "../about/Megan_Pokal_Resume.pdf";
 import { FaLinkedin, FaGithub, FaFileDownload } from 'react-icons/fa';
 import { SiGmail } from 'react-icons/si';
 
